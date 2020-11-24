@@ -24,5 +24,3 @@ const movieSchema = new Schema({
 });
 movieSchema.plugin(mongooseAutoInc.plugin, 'movie');
 module.exports = mongoose.model('movie', movieSchema);
-// contentSchema.plugin(mongooseAutoInc.plugin, 'content');
-// module.exports = mongoose.model('content', contentSchema);

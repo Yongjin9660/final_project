@@ -1,35 +1,20 @@
 import React from 'react';
+import { BrowserRouter, HashRouter, Route } from "react-router-dom";
 
-class App extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: null,
-      movies:[]
-    }
-  }
+import Login from "./components/Login";
+import Home from "./components/Home";
+import SignUp from "./components/SignUp";
 
-  componentDidMount() {
-    // fetch('http://localhost:3001/api')
-    //   .then(res => res.json())
-    //   .then(data => this.setState({title: data.title}));
-    fetch('http://localhost:3001/api')
-      .then(res => res.json())
-      .then(movies => this.setState({ movies }));
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <div>
-    {this.state.movies.length !== 0? <h1>{this.state.movies.map(movie =>
-        <div key={movie._id}>{movie.title}</div>
-      )}</h1>:<h1>loading...</h1>}
-        </div>
-      </div>
-    );
-  }
-  
+function App() {
+  return (
+  <BrowserRouter>
+    <Route path="/" exact={true} component={Login} />
+    <Route path="/home" exact={true} component={Home} />
+    <Route path="/signup" exact={true} component={SignUp} />
+  </BrowserRouter>
+  );
 }
+
+
 
 export default App;
