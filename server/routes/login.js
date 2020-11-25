@@ -3,6 +3,7 @@ const crypto = require("crypto");
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const movie = require('../../models/movie');
 const LocalStrategy = require('passport-local').Strategy;
 
 router.get('/', (req, res) => {
@@ -17,15 +18,17 @@ router.get('/SignUp', (req, res) => {
 });
 
 router.post('/', (req,res)=>{
-    console.log(req.body);
-    res.send("login");
+    var data = req.body;
+    console.log('email : '+data.email +'pwd : '+data.pwd);
 
 
-
-
-
-
-    
+    User.find({email : data.email, password: crypto.createHash('sha512').update(data.pwd).digest('base64') }, function(err, user){
+        if(err){
+            console.log(err);
+        } else {
+            res.json(user);
+        }
+    });
 })
 
 router.post('/SignUp', (req,res)=>{

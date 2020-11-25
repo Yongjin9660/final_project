@@ -4,15 +4,11 @@ class App extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      title: null,
       movies:[]
     }
   }
 
   componentDidMount() {
-    // fetch('http://localhost:3001/api')
-    //   .then(res => res.json())
-    //   .then(data => this.setState({title: data.title}));
     fetch('http://localhost:4000/api')
       .then(res => res.json())
       .then(movies => this.setState({ movies }));
