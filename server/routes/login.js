@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     res.send(body);
 });
 
-router.get('/SignUp', (req, res) => {
+router.get('/signup', (req, res) => {
     console.log('http://localhost:4000/login/SignUp');
     res.send('Here is SignUp');
 });
@@ -38,14 +38,22 @@ router.post('/', async (req, res, next) => {
 //     res.json(movies);
 // });
 
-router.post('/SignUp', (req,res)=>{
+router.post('/signup', (req,res)=>{
     var data = req.body;
     console.log(data);
+
+    console.log(data.admin);
+    var isAdmin = false;
+
+    if(data.admin === "Yongjin"){
+        isAdmin = true;    
+    }
+
     const user = new User({
         email : data.email,
         password: crypto.createHash('sha512').update(data.pwd).digest('base64'),
-        name : data.name
-        
+        name : data.name,
+        isAdmin : isAdmin
     });
     user.save((err)=>{
         if(err){

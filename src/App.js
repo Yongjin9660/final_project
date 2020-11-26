@@ -50,8 +50,8 @@ class App extends React.Component{
 
         <div className="Body">
           <Route path="/" exact={true} component={Home} />
-          {}
           <Route path="/login" exact={true} render={props => <Login login={this.login} user={this.state.user} />} />
+          <Route path="/signup" exact={true} component={SignUp} />
         </div>
       </BrowserRouter>
       // <div className="App">

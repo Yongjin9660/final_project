@@ -30,9 +30,16 @@ class Menu extends React.Component {
                     <button>Profile</button>
                 </Link>
                 {this.props.user ? 
-                    (<Link to="/login">
-                        <button>Login</button>
-                    </Link>) : 
+                    (
+                    <div className="LoginForm">
+                        <Link to="/login">
+                            <button>Login</button>
+                        </Link>
+                        <Link to="/signup">
+                            <button>SignUp</button>
+                        </Link>
+                    </div>
+                    ) : 
                     (<Logout logout={this.props.logout}/>)}
             </div>
         );
