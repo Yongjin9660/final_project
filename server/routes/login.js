@@ -17,19 +17,26 @@ router.get('/SignUp', (req, res) => {
     res.send('Here is SignUp');
 });
 
-router.post('/', (req,res)=>{
+router.post('/', async (req, res, next) => {
     var data = req.body;
-    console.log('email : '+data.email +'pwd : '+data.pwd);
-
-
-    User.find({email : data.email, password: crypto.createHash('sha512').update(data.pwd).digest('base64') }, function(err, user){
-        if(err){
-            console.log(err);
-        } else {
-            res.json(user);
-        }
-    });
+    console.log('email : ' + data.email + 'pwd : ' + data.password);
+    // User.find({ email: data.email, password: crypto.createHash('sha512').update(data.pwd).digest('base64') }, function (err, user) {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         res.json(user);
+    //     }
+    // });
+    const users = await User.find({});
+    res.json(users);
 })
+
+// router.post('/', async (req, res, next) => {
+//     console.log('http://localhost:4000/api/');
+//     const movies = await Movie.find({});
+//     console.log(movies);
+//     res.json(movies);
+// });
 
 router.post('/SignUp', (req,res)=>{
     var data = req.body;

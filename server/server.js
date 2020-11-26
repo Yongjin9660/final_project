@@ -3,8 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const mongooseAutoInc = require('mongoose-auto-increment');
 const bodyParser = require('body-parser');
-const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
+
 const Session = require('express-session');
 const flash = require('connect-flash');
 var MongoDBStore = require('connect-mongodb-session')(Session);
@@ -43,11 +42,10 @@ app.use(Session({
   secret:'mymymymymyna', 
   resave:false,
   saveUninitialized:true,
-  rolling:true,
-  cookie:{maxAge:1000*60*60},
+  //cookie:{maxAge:1000*60*60},
   store: store
 }));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 app.listen(4000, () => console.log('Node.js Server is running on port 4000...'));
