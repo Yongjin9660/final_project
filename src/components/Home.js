@@ -1,31 +1,33 @@
 import React from 'react';
 
-class Home extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-    
-    }
-  }
-//   </Link>
-//   {authenticated ? (
-//   <LogoutButton logout={logout} />
-//   ) : (
-//   <Link to="/login">
-//       <button>Login</button>
-//   </Link> 
 
-  render() {
-    return (
-      <div className="Home">
+function Home(){
+
+  return(
+    <div className="Home">
         <h1>Home</h1>
         <p>Welcome home!</p>
-      </div>
-    );
-  }
+    </div>
+  );
+
 }
 
 export default Home;
+
+// class Home extends React.Component{
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+    
+//     }
+//   }
+//   render() {
+//     return (
+//       <div className="Home">
+//       </div>
+//     );
+//   }
+// }
 
 
 // class App extends React.Component{
