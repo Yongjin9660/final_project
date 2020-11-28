@@ -16,7 +16,19 @@ function Menu({ state }) {
             <Link to="/profile">
                 <button>Profile</button>
             </Link>
-            {state.isLogin ?
+            {sessionStorage.getItem("Hello") === "world" ? 
+                <Logout />
+                :
+                <>
+                    <Link to="/login">
+                            <button>Login</button>
+                        </Link>
+                        <Link to="/signup">
+                            <button>SignUp</button>
+                    </Link>
+                </>
+            }
+            {/* {state.isLogin ?
                 <Logout />
                 :
                 <>
@@ -27,7 +39,7 @@ function Menu({ state }) {
                         <button>SignUp</button>
                     </Link>
                 </>
-            }
+            } */}
         </div>
     );
 

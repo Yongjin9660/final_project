@@ -4,6 +4,7 @@ import { actionCreators } from '../store';
 import { Link, Route, BrowserRouter, Redirect } from 'react-router-dom';
 import Auth from './Auth';
 import axios from 'axios';
+import { session } from "passport";
 const crypto = require("crypto");
 
 
@@ -34,6 +35,7 @@ function Login({ state, dispatchLogin }) {
                 if (isLogin) {
                     alert('로그인 성공!');
                     dispatchLogin(isLogin, isAdmin);
+                    sessionStorage.setItem("Hello", "world");
                 } else {
                     alert('로그인 실패!');
                 }

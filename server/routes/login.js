@@ -42,7 +42,6 @@ router.post('/signup', (req,res)=>{
     var data = req.body;
     console.log(data);
 
-    console.log(data.admin);
     var isAdmin = false;
 
     if(data.admin === "Yongjin"){
@@ -55,15 +54,15 @@ router.post('/signup', (req,res)=>{
         name : data.name,
         isAdmin : isAdmin
     });
+    
     user.save((err)=>{
         if(err){
-            console.log('fail '+ err);
+            res.send({save : "fail"});
         }
         else{
-            console.log('success! ');
+            res.send({save : "success"});
         }
     })
-    res.send("SignUp");
 })
 
 //로그인에 성공할 시 serializeUser 메서드를 통해서 사용자 정보를 세션에 저장
@@ -75,7 +74,5 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (user, done) {
     done(null, user);
 });
-
-
 
 module.exports = router;
