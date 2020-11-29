@@ -1,27 +1,36 @@
-const Movie = require('../../models/movie');
+// const Movie = require('../../models/movie');
+const Content = require('../../models/content');
 
 const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
     console.log('http://localhost:4000/content/');
-    const movies = await Movie.find({});
-    console.log(movies);
-    res.json(movies);
+    const contents = await Content.find({});
+    res.json(contents);
 });
 
 router.post('/create', (req,res)=>{
     var data = req.body;
-    console.log(data);
 
-    const movie = new Movie({
+    const directors = data.director.split(',');
+    const actors = data.actors.split(',');
+    const genres = data.genre.split(',');
+
+    const content = new Content({
         title : data.title,
+        desc: data.desc,
+        director : directors,
+        actors : actors,
         year: Number(data.year),
-        url : data.url,
+        genre : genres,
+        movieRating : data.movieRating,
+        url: data.url
     });
     
-    movie.save((err)=>{
+    content.save((err)=>{
         if(err){
+            console.log(err);
             res.send({save : "fail"});
         }
         else{

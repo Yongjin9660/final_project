@@ -41,6 +41,7 @@
 
 import React from 'react';
 import axios from 'axios';
+import Content from './Content';
 
 class Home extends React.Component{
   state = {
@@ -49,15 +50,9 @@ class Home extends React.Component{
   }
 
   getContents = async () => {
-    // const {
-    //   data: {
-    //     data: { contents }
-    //   }
-    // } = await axios.get("http://localhost:4000/content/");
     await axios.get("http://localhost:4000/content/")
       .then(data => {
         this.setState({ contents: data.data, isLoading: false });
-        console.log(this.state.contents);
       })
   };
   componentDidMount() {
@@ -69,7 +64,6 @@ class Home extends React.Component{
 
     return(
       <div className="Home">
-        <p>Welcome home!</p>
         {isLoading ? (
           <div className="Loading">
             <span>Loading...</span>
@@ -77,58 +71,18 @@ class Home extends React.Component{
         ) : (
           <div className="Contents">
             {contents.map(content => (
-              <>
-              <h1>{content.title}</h1>
-              <img src={content.url} title={content.title} alt={content.title}/>
-              </>
+              <Content 
+                key={content._id}
+                id={content._id}
+                title={content.title}
+                url={content.url}
+              />
             ))}
           </div>
         )
-
         }
       </div>
     );
   }
 }
 export default Home;
-
-
-// function Home(){
-//   const [content, setContent] = useState([]);
-
-//   const getContents = async () => {
-//     // const {
-//     //   contents : {
-//     //     contents : {setContent}
-//     //   } = await axios.get("http://localhost:4000/content");
-//     // }
-//     await axios.get("http://localhost:4000/content")
-//       .then(data => {
-//         console.log(data.data);
-//         setContent(data.data);
-//         //setContent(data);
-//       });
-//   }
-
-//   useEffect(()=>{
-//     getContents();
-//   });
-
-//   // useEffect(async ()=>{
-//   //   axios('/content',{})
-//   //     .then(response => {
-//   //       console.log(response.data);
-//   //       setContent(response.data);
-//   //     })
-//   //     .catch(err => {
-//   //       console.log(err);
-//   //     })
-//   // });
-
-//   return(
-
-//   );
-
-// }
-
-// export default Home;

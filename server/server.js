@@ -8,7 +8,7 @@ const Session = require('express-session');
 const flash = require('connect-flash');
 var MongoDBStore = require('connect-mongodb-session')(Session);
 
-mongoose.connect('mongodb://localhost:27017/Lab10-201620956', {
+mongoose.connect('mongodb://localhost:27017/web_final', {
   useFindAndModify: false,
   useNewUrlParser: true,
   useUnifiedTopology: true,

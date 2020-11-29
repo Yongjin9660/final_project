@@ -6,20 +6,52 @@ const Schema = mongoose.Schema;
 const contentSchema = new Schema({
     title: {
         type: String,
+        unique: true, 
         required : true,
-    }, 
+    },
+    desc: {
+        type: String,
+        required: true,
+    },
+    director: {
+        type: [String],
+        required: true,
+    },
+    actors: {
+        type: [String],
+        required : true,
+    },
     year: {
+        type : Number,
+        required: true,
+    },
+    genre: {
+        type: [String],
+        required: true,
+    },
+    movieRating: {
         type: Number,
         required: true,
     },
     url: {
         type: String,
-        required : true,
-    },
-    trending: {
-        type : Boolean,
         required: true,
-        default: false,
+    },
+    rating: {
+        type: Number,
+        default: 0
+    },
+    ratingNumber: {
+        type: Number,
+        default: 0
+    },
+    reviews: {
+        type: [String],
+        default: []
+    },
+    addDate: { 
+        type: Date, 
+        default: Date.now 
     },
 });
 
