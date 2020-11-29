@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { actionCreators } from './store';
-import { Link, Route, BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 
 import Menu from "./components/Menu";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import Admin from "./components/Admin";
 import Profile from "./components/Profile";
 import SignUp from "./components/SignUp";
 
@@ -25,6 +26,7 @@ function App({ state, dispatchLogin }){
         <Menu />
         <div className="Body">
           <Route path="/" exact={true} component={Home} />
+          <Route path="/admin" exact={true} component={Admin} />
           <Route path="/profile" exact={true} component={Profile} />
           <Route path="/login" exact={true} component={Login} />
           <Route path="/signup" exact={true} component={SignUp} />

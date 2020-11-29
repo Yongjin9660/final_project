@@ -19,6 +19,7 @@ function Profile({ state }) {
     }
 
 }
+
 function mapStateToProps(state) {
     return { state: state };
 }

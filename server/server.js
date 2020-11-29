@@ -16,7 +16,7 @@ mongoose.connect('mongodb://localhost:27017/Lab10-201620956', {
 });
 mongooseAutoInc.initialize(mongoose.connection);
 
-const indexRouter = require('./routes/index');
+const contentRouter = require('./routes/content');
 const loginRouter = require('./routes/login');
 
 const app = express();
@@ -25,7 +25,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use('/', indexRouter);
-app.use('/api', indexRouter);
+app.use('/content', contentRouter);
 app.use('/login', loginRouter);
 app.use(flash());
 

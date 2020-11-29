@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 
-function SignUp() {
+function SignUp({ state }) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -26,7 +27,7 @@ function SignUp() {
                 .catch(error => { console.log('error : ', error.response) });
         }
     }
-    if(signup === true){
+    if(state.isLogin || signup){
         return <Redirect to={{pathname: "/"}} />;
     }
     return (
@@ -46,4 +47,8 @@ function SignUp() {
 
 }
 
-export default SignUp;
+function mapStateToProps(state) {
+    return { state: state };
+}
+
+export default connect(mapStateToProps, null)(SignUp);

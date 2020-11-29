@@ -3,7 +3,6 @@ const crypto = require("crypto");
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const movie = require('../../models/movie');
 const LocalStrategy = require('passport-local').Strategy;
 
 router.get('/', (req, res) => {
@@ -30,13 +29,6 @@ router.post('/', async (req, res, next) => {
     const users = await User.find({});
     res.json(users);
 })
-
-// router.post('/', async (req, res, next) => {
-//     console.log('http://localhost:4000/api/');
-//     const movies = await Movie.find({});
-//     console.log(movies);
-//     res.json(movies);
-// });
 
 router.post('/signup', (req,res)=>{
     var data = req.body;

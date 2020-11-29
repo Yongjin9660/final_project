@@ -10,8 +10,8 @@ function Menu({ state, dispatchLogin }) {
             <Link to="/">
                 <button>Home</button>
             </Link>
-            <Link to="/about">
-                <button>About</button>
+            <Link to="/admin">
+                <button>Admin</button>
             </Link>
             <Link to="/profile">
                 <button>Profile</button>
