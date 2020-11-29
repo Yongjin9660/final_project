@@ -1,14 +1,23 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { actionCreators } from './store';
 import { Link, Route, BrowserRouter } from 'react-router-dom';
 
 import Menu from "./components/Menu";
 import Login from "./components/Login";
 import Home from "./components/Home";
-import Auth from "./components/Auth";
+import Profile from "./components/Profile";
 import SignUp from "./components/SignUp";
 
 
-function App(){
+function App({ state, dispatchLogin }){
+
+  if(sessionStorage.getItem("LOGIN") === "OK" && !state.isLogin){
+    var email = sessionStorage.getItem("EMAIL");
+    var name = sessionStorage.getItem("NAME");
+    var isAdmin = sessionStorage.getItem("ADMIN");
+    dispatchLogin(email, name, true, isAdmin);
+  }
 
   return(
     <div className="App">
@@ -16,6 +25,7 @@ function App(){
         <Menu />
         <div className="Body">
           <Route path="/" exact={true} component={Home} />
+          <Route path="/profile" exact={true} component={Profile} />
           <Route path="/login" exact={true} component={Login} />
           <Route path="/signup" exact={true} component={SignUp} />
         </div>
@@ -24,50 +34,14 @@ function App(){
   );
 }
 
+function mapStateToProps(state) {
+  return { state : state };
+}
 
-// class App extends React.Component{
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       user : {}
-//     }
-//     this.setUser = this.setUser.bind(this);
-//     this.login = this.login.bind(this);
-//     this.logout = this.logout.bind(this);
-//   }
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+      dispatchLogin : (email, name, isLogin, isAdmin) => dispatch(actionCreators.Login(email, name, isLogin, isAdmin))
+  };
+}
 
-//   setUser(user){
-//     this.setState({
-//       user : user
-//     });
-//   }
-
-//   login( email, password ){
-//     this.setUser(Auth( email, password ));
-//   }
-//   logout(){
-//     this.setUser( {} );
-//   }
-//   moveHome(){
-//     window.location.href = '/';
-//   }
-
-//   render() {
-//     return (
-//       <BrowserRouter>
-//         <Menu user={this.state.user} logout={this.logout} />
-
-        // <div className="Body">
-        //   <Route path="/" exact={true} component={Home} />
-        //   <Route path="/login" exact={true} render={props => <Login login={this.login} user={this.state.user} />} />
-        //   <Route path="/signup" exact={true} component={SignUp} />
-        // </div>
-//       </BrowserRouter>
-
-//     );
-//   }
-// }
-
-
-
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

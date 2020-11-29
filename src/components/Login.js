@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { actionCreators } from '../store';
-import { Link, Route, BrowserRouter, Redirect } from 'react-router-dom';
-import Auth from './Auth';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import { session } from "passport";
-const crypto = require("crypto");
 
+const crypto = require("crypto");
 
 function Login({ state, dispatchLogin }) {
     const [text, setText] = useState("");
     const [password, setPassword] = useState("");
-
-    console.log(state);
 
     function Auth() {
         console.log(text);
@@ -20,28 +16,34 @@ function Login({ state, dispatchLogin }) {
         axios.post('/login', {})
             .then(response => {
                 var users = response.data;
+                var email, name;
                 var isLogin = false;
                 var isAdmin = false;
 
                 for (var i = 0; i < users.length; i++) {
                     if (users[i].email === text && users[i].password === crypto.createHash('sha512').update(password).digest('base64')) {
                         console.log(users[i]);
+                        email = users[i].email;
+                        name = users[i].name;
                         isLogin = true;
                         isAdmin = users[i].isAdmin;
                         break;
                     }
                 }
-
                 if (isLogin) {
                     alert('로그인 성공!');
-                    dispatchLogin(isLogin, isAdmin);
-                    sessionStorage.setItem("Hello", "world");
+                    dispatchLogin(email, name, isLogin, isAdmin);
+                    sessionStorage.setItem("LOGIN", "OK");
+                    sessionStorage.setItem("EMAIL", email);
+                    sessionStorage.setItem("NAME", name);
+                    sessionStorage.setItem("ADMIN", isAdmin);
                 } else {
                     alert('로그인 실패!');
                 }
             })
             .catch(err => { console.log(err)});
     }
+
     if(state.isLogin){
         return <Redirect to={{pathname: "/"}} />;
     }
@@ -54,7 +56,7 @@ function Login({ state, dispatchLogin }) {
                 <button onClick={Auth}>Login</button>
             </div>
         );
-    }
+        }
 }
 
 function mapStateToProps(state) {
@@ -62,50 +64,9 @@ function mapStateToProps(state) {
   }
 
 function mapDispatchToProps(dispatch, ownProps) {
-    console.log('ownProps');
-    console.log(ownProps);
     return {
-        dispatchLogin : (isLogin, isAdmin) => dispatch(actionCreators.Login(isLogin, isAdmin))
+        dispatchLogin : (email, name, isLogin, isAdmin) => dispatch(actionCreators.Login(email, name, isLogin, isAdmin))
     };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
-
-
-// class Login extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             email : "",
-//             password : ""
-//         }
-//     }
-//     getEmail = (event) => {this.setState({email : event.target.value})};
-//     getPwd = (event) => {this.setState({password : event.target.value})};
-
-//     render() {
-//         const user = this.props.user;
-//         if(!user){
-//             console.log('Here render : ');
-//             console.log(user);
-//             console.log('end');
-//             return <Redirect to={{pathname: "/"}} />;
-//         }else{
-//             console.log('in Else');
-//             console.log(user);
-//             console.log('end');
-//         }
-
-
-//         return (
-//             <div className="Login">
-//                 <h1>Login</h1>
-//                 <input type="text" value={this.state.email} onChange={this.getEmail} placeholder="email" />
-//                 <input type="password" value={this.state.password} onChange={this.getPwd} placeholder="password" />
-//                 <button onClick={function(){
-//                     this.props.login(this.state.email, this.state.password) 
-//                 }.bind(this)}>Login</button>
-//             </div>
-//         );
-//     }
-// }
