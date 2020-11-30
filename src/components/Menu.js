@@ -10,10 +10,11 @@ function Menu({ state, dispatchLogin }) {
         <div className="Menu">
             <Link to="/">Home</Link>
             <Link to="/profile">Profile</Link>
-            {
+            <Link to="/admin">Admin</Link>
+            {/* {
                 state.isAdmin ?
                     <Link to="/admin">Admin</Link> : <></>
-            }
+            } */}
             {
                 state.isLogin ? 
                     <Logout />
