@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { actionCreators } from "../store";
+import '../style/Logout.css'
 
 function Logout({ dispatchLogout }) {
 

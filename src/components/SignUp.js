@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
+import '../style/Signup.css';
 
 function SignUp({ state }) {
     const [name, setName] = useState("");
@@ -32,16 +33,18 @@ function SignUp({ state }) {
     }
     return (
         <div className="Signup">
-            <h1>회원가입</h1>
-            <h2>이름</h2>
-            <input type="text" value={name} onChange={e => setName(e.target.value)} />
-            <h2>Email</h2>
-            <input type="text" value={email} onChange={e => setEmail(e.target.value)} />
-            <h2>비밀번호</h2>
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-            <h2>Admin Code</h2>
-            <input type="text" value={adminCode} onChange={e => setAdminCode(e.target.value)} />
-            <button onClick={btnClick}>회원가입</button>
+            <div className="form">
+                <h1>회원가입</h1>
+                <h2>이름</h2>
+                <input type="text" value={name} onChange={e => setName(e.target.value)} />
+                <h2>Email</h2>
+                <input type="text" value={email} onChange={e => setEmail(e.target.value)} />
+                <h2>비밀번호</h2>
+                <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+                <h2>Admin Code</h2>
+                <input type="text" value={adminCode} onChange={e => setAdminCode(e.target.value)} />
+                <button onClick={btnClick}>회원가입</button>
+            </div>
         </div>
     );
 

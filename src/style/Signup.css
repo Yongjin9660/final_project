@@ -1,0 +1,12 @@
+.Signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.Login .form input {
+    background-color: skyblue;
+    color: blue;
+}
+

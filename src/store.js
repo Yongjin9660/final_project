@@ -23,28 +23,27 @@ const Logout = (email, name, isLogin, isAdmin) => {
     }
 }
 
-
 const initialState = {
     email : "",
     name : "",
     isLogin : false,
-    isAdmin : false
+    isAdmin : false,
 };
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
         case LOGIN:
-            return {...state, email : action.email, name : action.name, isLogin : action.isLogin, isAdmin : action.isAdmin}
+            return {...state, email : action.email, name : action.name, isLogin : action.isLogin, isAdmin : action.isAdmin};
         case LOGOUT:
-            return {...state, email : action.email, name : action.name, isLogin : action.isLogin, isAdmin : action.isAdmin}
-        default: 
+            return {...state, email : action.email, name : action.name, isLogin : action.isLogin, isAdmin : action.isAdmin};   
+        default:
             return state;
     }
 }
 
 export const actionCreators = {
     Login,
-    Logout
+    Logout,
 };
 
 const store = createStore(reducer);

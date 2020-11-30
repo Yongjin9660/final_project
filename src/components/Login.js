@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { actionCreators } from '../store';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import '../style/Login.css'
 
 const crypto = require("crypto");
 
@@ -41,31 +42,32 @@ function Login({ state, dispatchLogin }) {
                     alert('로그인 실패!');
                 }
             })
-            .catch(err => { console.log(err)});
+            .catch(err => { console.log(err) });
     }
 
-    if(state.isLogin){
-        return <Redirect to={{pathname: "/"}} />;
+    if (state.isLogin) {
+        return <Redirect to={{ pathname: "/" }} />;
     }
-    else{
+    else {
         return (
             <div className="Login">
-                <h1>Login</h1>
-                <input type="text" value={text} onChange={e => setText(e.target.value)} placeholder="Email" />
-                <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" />
-                <button onClick={Auth}>Login</button>
+                <div className="login_form">
+                    <input type="text" value={text} onChange={e => setText(e.target.value)} placeholder="ID를 입력해주세요." />
+                    <button onClick={Auth}>로그인</button>
+                    <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="비밀번호를 입력해주세요." />
+                </div>
             </div>
         );
-        }
+    }
 }
 
 function mapStateToProps(state) {
-    return { state : state };
-  }
+    return { state: state };
+}
 
 function mapDispatchToProps(dispatch, ownProps) {
     return {
-        dispatchLogin : (email, name, isLogin, isAdmin) => dispatch(actionCreators.Login(email, name, isLogin, isAdmin))
+        dispatchLogin: (email, name, isLogin, isAdmin) => dispatch(actionCreators.Login(email, name, isLogin, isAdmin))
     };
 }
 

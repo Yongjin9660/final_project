@@ -1,0 +1,30 @@
+.Login {
+    background-color: rgb(30, 30, 30);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.Login .login_form {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 250px 150px;
+    grid-template-rows: 40px 40px;
+}
+
+.Login .login_form input {
+    margin-right: 3px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.Login .login_form button {
+    grid-row: span 2;
+    margin-left: 4px;
+    background-color: rgb(61, 54, 54);
+    color: rgb(114, 134, 72);
+    font-weight: 600;
+    font-size: 17px;
+    border-radius: 5px;
+}
