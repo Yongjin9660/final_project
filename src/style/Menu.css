@@ -1,0 +1,39 @@
+.Menu {
+    z-index: 1;
+    position: fixed;
+    top: 30px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(61, 54, 54);
+    padding: 10px 20px;
+    box-shadow: 3px 3px 3px rgb(112, 102, 102);
+    border-radius: 5px;
+  }
+  
+  @media screen and (max-width: 1300px) {
+    .Menu {
+      top: 0px;
+      bottom: initial;
+      width: 95%;
+      display: inline;
+      text-align: center;
+      box-shadow: 0px 1px 1px rgb(112, 102, 102);
+    }
+    .Menu a {
+        padding-left: 20px;
+      }
+  }
+  
+  .Menu a {
+    text-decoration: none;
+    color: rgb(114, 134, 72);
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .Menu a:not(:last-child) {
+    margin-bottom: 20px;
+  }

@@ -3,30 +3,21 @@ import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import { actionCreators } from '../store';
 import Logout from './Logout';
+import '../style/Menu.css';
 
 function Menu({ state, dispatchLogin }) {
     return (
         <div className="Menu">
-            <Link to="/">
-                <button>Home</button>
-            </Link>
-            <Link to="/admin">
-                <button>Admin</button>
-            </Link>
-            <Link to="/profile">
-                <button>Profile</button>
-            </Link>
+            <Link to="/">Home</Link>
+            <Link to="/admin">Admin</Link>
+            <Link to="/profile">Profile</Link>
             {
                 state.isLogin ? 
                     <Logout />
                     :
                     <>
-                    <Link to="/login">
-                        <button>Login</button>
-                    </Link>
-                    <Link to="/signup">
-                        <button>SignUp</button>
-                    </Link>
+                    <Link to="/login">Login</Link>
+                    <Link to="/signup">SignUp</Link>
                     </>
             }
         </div>
