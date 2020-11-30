@@ -61,7 +61,7 @@ function Content({ id, content }) {
                 }
             }}>
                 <img src={content.url} title={content.title} alt={content.title} />
-                <div className="content_movierating">{content.movieRating}</div>
+                <div className={"age"+content.movieRating}>{content.movieRating}</div>
                 <div className="content_data">
                     <h2>{content.title} ({content.year})</h2>
                     <div className="rating">평점 {content.rating}

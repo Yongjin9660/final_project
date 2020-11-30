@@ -28,16 +28,43 @@
     grid-column: 2/3;
   }
   
-   .content .content_movierating{
+   .content .age19{
     width: 25px;
     height: 25px;
     border-radius: 50%;
     background-color: red;
     text-align: center;
     vertical-align: middle;
-    
-    
   }
+  .content .age15{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: blue;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .content .age12{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: orange;
+    text-align: center;
+    vertical-align: middle;
+  }
+   .content .age1{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: green;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+
+
+
+
 
   .movie .movie__title,
   .movie .movie__year {

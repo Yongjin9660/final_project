@@ -1,8 +1,12 @@
-button{
+.Logout button{
     border-style: none;
     background-color: transparent;
     color: rgb(114, 134, 72);
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 600;
+}
+
+.Logout button:hover{
+    cursor: pointer;
 }

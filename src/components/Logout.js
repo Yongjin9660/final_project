@@ -12,7 +12,9 @@ function Logout({ dispatchLogout }) {
     }
     
     return(
-        <button onClick={tempLogout}>Logout</button>
+        <div className="Logout">
+            <button onClick={tempLogout}>Logout</button>
+        </div>
     );
 }
 

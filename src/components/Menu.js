@@ -9,8 +9,11 @@ function Menu({ state, dispatchLogin }) {
     return (
         <div className="Menu">
             <Link to="/">Home</Link>
-            <Link to="/admin">Admin</Link>
             <Link to="/profile">Profile</Link>
+            {
+                state.isAdmin ?
+                    <Link to="/admin">Admin</Link> : <></>
+            }
             {
                 state.isLogin ? 
                     <Logout />
