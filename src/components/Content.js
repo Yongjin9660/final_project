@@ -1,19 +1,18 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function Content({ id, title, url }) {
+function Content({ id, content }) {
     return (
-        <div className="content">
+        <div className="Content">
             <Link to={{
                 pathname: `/review/${id}`,
                 state: {
-                    title,
-                    url
+                    content:content
                 }
             }}>
-                <img src={url} title={title} alt={title}/>
+                <img src={content.url} title={content.title} alt={content.title}/>
                 <div className="content_data">
-                    <h3 className="content_title">{title}</h3>
+                    <h3 className="content_title">{content.title}</h3>
                 </div>
             </Link>
         </div>

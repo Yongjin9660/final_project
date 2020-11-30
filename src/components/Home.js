@@ -74,8 +74,7 @@ class Home extends React.Component{
               <Content 
                 key={content._id}
                 id={content._id}
-                title={content.title}
-                url={content.url}
+                content={content}
               />
             ))}
           </div>

@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import Admin from "./components/Admin";
 import Profile from "./components/Profile";
 import SignUp from "./components/SignUp";
+import Review from "./components/Review";
 
 
 function App({ state, dispatchLogin }){
@@ -30,6 +31,7 @@ function App({ state, dispatchLogin }){
           <Route path="/profile" exact={true} component={Profile} />
           <Route path="/login" exact={true} component={Login} />
           <Route path="/signup" exact={true} component={SignUp} />
+          <Route path="/review/:id" exact={true} component={Review} />
         </div>
       </BrowserRouter>
     </div>
