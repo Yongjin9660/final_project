@@ -10,6 +10,7 @@ import Admin from "./components/Admin";
 import Profile from "./components/Profile";
 import SignUp from "./components/SignUp";
 import Review from "./components/Review";
+import './style/App.css'
 
 
 function App({ state, dispatchLogin }){

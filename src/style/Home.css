@@ -1,0 +1,31 @@
+.Home {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .Loading {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+  }
+  
+  .contents {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(500px, 1fr));
+    grid-gap: 60px;
+    width: 95%;
+    padding-top: 80px;
+    padding-bottom: 50px;
+  }
+  
+  @media screen and (max-width: 1300px) {
+    .contents {
+      grid-template-columns: 1fr;
+      width: 90%;
+    }
+  }

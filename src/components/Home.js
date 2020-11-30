@@ -1,47 +1,7 @@
-// import axios from 'axios';
-// import { response } from 'express';
-// import React from 'react'
-
-// // function Home(){
-
-// //   // getMovies = async () => {
-// //   //   const {
-// //   //     data: {
-// //   //       data: { movies }
-// //   //     }
-// //   //   } = await Axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
-// //   //   this.setState({ movies, isLoading: false });
-// //   // };
-// //   // componentDidMount() {
-// //   //   this.getMovies();
-// //   // }
-
-// //   // const getContents = async() => {
-// //   //   axios.post('/content', {})
-// //   //     .then(response => {
-// //   //       console.log(response);
-// //   //     })
-// //   // }
-
-// //   // useEffect(() => {
-// //   //   this.getContents();
-// //   // });a
-
-// //   return(
-// //     <div className="Home">
-// //         <h1>Home</h1>
-// //         <p>Welcome home!</p>
-// //     </div>
-// //   );
-
-// // }
-
-// // export default Home;
-
-
 import React from 'react';
 import axios from 'axios';
 import Content from './Content';
+import "../style/Home.css";
 
 class Home extends React.Component{
   state = {
@@ -69,7 +29,7 @@ class Home extends React.Component{
             <span>Loading...</span>
           </div>
         ) : (
-          <div className="Contents">
+          <div className="contents">
             {contents.map(content => (
               <Content 
                 key={content._id}
