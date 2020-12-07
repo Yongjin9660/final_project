@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import '../style/Signup.css';
 
-function SignUp({ state }) {
+function SignUp({ state, history }) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -28,12 +28,55 @@ function SignUp({ state }) {
                 .catch(error => { console.log('error : ', error.response) });
         }
     }
+    function btnCancel(){
+        history.goBack();
+    }
     if(state.isLogin || signup){
         return <Redirect to={{pathname: "/"}} />;
     }
     return (
         <div className="Signup">
-            <div className="form">
+            <div className="Signup_table">
+                <table>
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>이름</td>
+                            <td>
+                                <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="NAME" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>EMAIL</td>
+                            <td>
+                                <input type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder="EMAIL" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PASSWORD</td>
+                            <td>
+                                <input type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder="PASSWORD" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ADMIN CODE</td>
+                            <td>
+                                <input type="text" value={adminCode} onChange={e => setAdminCode(e.target.value)} placeholder="ADMIN CODE" />
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colSpan="2">
+                                <button onClick={btnClick} id="btn_signup">회원가입</button>
+                                <button onClick={btnCancel}>취소</button>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            {/* <div className="form">
                 <h1>회원가입</h1>
                 <h2>이름</h2>
                 <input type="text" value={name} onChange={e => setName(e.target.value)} />
@@ -44,7 +87,7 @@ function SignUp({ state }) {
                 <h2>Admin Code</h2>
                 <input type="text" value={adminCode} onChange={e => setAdminCode(e.target.value)} />
                 <button onClick={btnClick}>회원가입</button>
-            </div>
+            </div> */}
         </div>
     );
 

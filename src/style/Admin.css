@@ -12,10 +12,12 @@
     font-weight: 600;
     font-size: 20px;
     border-radius: 5px;
-    
     margin-top: 10px;
     margin-left: 80px;
+}
 
+.Admin table button:hover{
+    cursor: pointer;
 }
 
 .Admin .Admin_table td{
@@ -29,7 +31,7 @@
     min-width: 500px;
     max-height: 300px;
     background-color: rgb(61, 54, 54);
-    color: rgb(114, 134, 72);
+    color: gray;
     text-align: center;
     font-weight: 600;
     font-size: 15px;
@@ -40,7 +42,7 @@
 .Admin table input{
     width: 500px;
     background-color: rgb(61, 54, 54);
-    color: rgb(114, 134, 72);
+    color: gray;
     text-align: center;
     font-weight: 600;
     font-size: 15px;
@@ -54,6 +56,11 @@
 }
 
 #TA_direc{
+    height: 30px;
+    max-height: 100px;
+}
+
+#TA_actor{
     height: 30px;
     max-height: 100px;
 }

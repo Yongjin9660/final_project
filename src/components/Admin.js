@@ -85,7 +85,7 @@ function Admin({ state }) {
                         <tr>
                             <td>출연 배우</td>
                             <td>
-                                <textarea value={actors} onChange={e => setActors(e.target.value)} placeholder="배우" />
+                                <textarea value={actors} onChange={e => setActors(e.target.value)} placeholder="배우" id="TA_actor"/>
                             </td>
                         </tr>
                         <tr>
@@ -121,19 +121,6 @@ function Admin({ state }) {
                         </tr>
                     </tfoot>
                 </table>
-
-
-                {/* <span>제목</span>
-                <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder="Title" required />
-                <span>설명</span>
-                <textarea value={desc} onChange={e => setDesc(e.target.value)} placeholder="줄거리" cols="40" rows="8" />
-                <textarea value={director} onChange={e => setDirector(e.target.value)} placeholder="제작자" />
-                <textarea value={actors} onChange={e => setActors(e.target.value)} placeholder="배우" />
-                <input type="text" value={year} onChange={e => setYear(e.target.value)} placeholder="개봉년도" />
-                <textarea value={genre} onChange={e => setGenre(e.target.value)} placeholder="장르" />
-                <input type="text" value={movieRating} onChange={e => setMovieRating(e.target.value)} placeholder="관람등급" />
-                <textarea value={url} onChange={e => setUrl(e.target.value)} placeholder="Poster URL" cols="40" />
-                <button onClick={createContent}>Create</button> */}
             </div>
         </div>
     );
