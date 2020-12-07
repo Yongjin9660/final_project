@@ -10,6 +10,7 @@ import Admin from "./components/Admin";
 import Profile from "./components/Profile";
 import SignUp from "./components/SignUp";
 import Review from "./components/Review";
+import Director from "./components/sort/Director";
 import './style/App.css'
 
 
@@ -33,6 +34,7 @@ function App({ state, dispatchLogin }){
           <Route path="/login" exact={true} component={Login} />
           <Route path="/signup" exact={true} component={SignUp} />
           <Route path="/review/:id" exact={true} component={Review} />
+          <Route path="/sort/director/:name" exact={true} component={Director} />
         </div>
       </BrowserRouter>
     </div>

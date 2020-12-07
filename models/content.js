@@ -46,7 +46,7 @@ const contentSchema = new Schema({
         default: 0
     },
     reviews: {
-        type: [String],
+        type: [Object],
         default: []
     },
     addDate: { 
