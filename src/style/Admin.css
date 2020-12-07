@@ -1,67 +1,75 @@
-
-.Admin table input{
-    color: violet;
-}
-.Admin table button{
-    background-color: red;
-    border-style: none;
-}
-
-.Admin .table_form {
-    background-color: red;
-    text-align: center;
-}
-
-.Admin table textarea{
-    width: 500px;
-    max-width: 550px;
-    min-width: 490px;
-    max-height: 300px;
-}
-
-#TA_desc{
-    height: 100px;
-}
-
-#TA_genre{
-    height: 100px;
-}
-
-#TA_url{
-    
-}
-
 .Admin {
-    background-color: white;
+    background-color: rgb(30, 30, 30);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.Admin .Admin_table{
-    justify-content: center;
-    align-items: center;
-    
-}
-
-/* .Admin .Admin_form {
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-} */
-
-.Login .login_form input {
-    font-size: 15px;
-    border-radius: 5px;
-}
-
-.Login .login_form button {
-    grid-row: span 2;
-    margin-left: 4px;
+.Admin table button{
     background-color: rgb(61, 54, 54);
     color: rgb(114, 134, 72);
     font-weight: 600;
-    font-size: 17px;
+    font-size: 20px;
     border-radius: 5px;
+    
+    margin-top: 10px;
+    margin-left: 80px;
+
 }
+
+.Admin .Admin_table td{
+    color: rgb(114, 134, 72);
+    text-align: center;
+}
+
+.Admin table textarea{
+    width: 500px;
+    max-width: 500px;
+    min-width: 500px;
+    max-height: 300px;
+    background-color: rgb(61, 54, 54);
+    color: rgb(114, 134, 72);
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 5px;
+    border-style: none;
+}
+
+.Admin table input{
+    width: 500px;
+    background-color: rgb(61, 54, 54);
+    color: rgb(114, 134, 72);
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 5px;
+    border-style: none;
+    margin-bottom: 5px;
+}
+
+#TA_desc{
+    height: 100px;
+}
+
+#TA_direc{
+    height: 30px;
+    max-height: 100px;
+}
+
+#TA_genre{
+    height: 50px;
+}
+
+#TA_url{
+    height: 25px;
+    min-height: 20px;
+    max-height: 30px;
+}
+
+.Admin .Admin_table{
+    justify-content: center;
+    align-items: center;
+}
+

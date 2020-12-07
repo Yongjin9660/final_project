@@ -66,7 +66,7 @@ function Admin({ state }) {
                     <tbody>
                         <tr>
                             <td>제목</td>
-                            <td className="table_form">
+                            <td>
                                 <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder="Title" />
                             </td>
                         </tr>
@@ -79,7 +79,7 @@ function Admin({ state }) {
                         <tr>
                             <td>제작자</td>
                             <td>
-                                <textarea value={director} onChange={e => setDirector(e.target.value)} placeholder="제작자" />
+                                <textarea value={director} onChange={e => setDirector(e.target.value)} placeholder="제작자" id="TA_direc"/>
                             </td>
                         </tr>
                         <tr>
