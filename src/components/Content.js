@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import '../style/Content.css';
+import Star from './Star';
 
 function Content({ id, content }) {
     function genre() {
@@ -64,9 +65,9 @@ function Content({ id, content }) {
                 <div className={"age"+content.movieRating}>{content.movieRating}</div>
                 <div className="content_data">
                     <h2>{content.title} ({content.year})</h2>
-                    <div className="rating">평점 {content.rating}
-                        <span> {content.ratingNumber} 명 참여</span>
-                    </div>
+                        <Star rating={content.rating} />
+                        <div>(평점 : {content.rating}, {content.ratingNumber}명 참여)</div>
+
                     <div className="content_genre">
                         {genre()}
                     </div>

@@ -65,7 +65,6 @@ class Detail extends React.Component {
             alert("리뷰를 작성해주세요!");
             return;
         }
-        // console.log(this.props.state.email)
         axios.post('/content/createReview', {
             content_id: this.props.location.state.content._id,
             id: Date.now(),
@@ -95,8 +94,8 @@ class Detail extends React.Component {
                         <div className="content_info">
                             <div>{content.title}</div>
                             <div>{content.year}</div>
-                            <div>평점 : {content.rating}</div>
-                            <div>평점 준 사람 수 : {content.ratingNumber}</div>
+                            <Star rating={content.rating} />
+                            <div>(평점 : {content.rating}, {content.ratingNumber}명 참여)</div>
                             <div className="div_inline">감독</div>
                             <div className="tag_inline">{content.director.map(direc => (
                                 review.makeDirecLink(direc)
@@ -139,8 +138,6 @@ class Detail extends React.Component {
                             </div>
                         ) : (
                                 <div className="reveiw_list">
-                                    <div>참여한 사람: {content.ratingNumber}</div>
-                                    <Star rating={content.rating}/>
                                     <ul>
                                         {this.state.reviews.map(review => (
                                             <li>
