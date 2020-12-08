@@ -44,16 +44,18 @@
 .Review .content_info_area .poster img{
    width: 100%;
 }
+.Review .review {
+    margin-top: 20px;
+}
 
-.Review .review{
-
+.Review .review .btn_star{
+    margin-left: 50px;
+    margin-right: 100px;
+    display: inline;
 }
 .Review .review textarea{
-    margin-top: 3%;
-    margin-left: 25%;
-    margin-bottom: 3%;
-    width: 50%;
-    height: 10%px;
+    display: inline;
+    width: 250px;
 }
 .Review .review .star1{
     display: inline;
@@ -62,6 +64,8 @@
     border: 0;
     background: url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat;
     background-position: 0px -1060px;
+    cursor: pointer;
+    outline: 0;
 }
 .Review .review .star2{
     margin-left: 0px;
@@ -71,6 +75,9 @@
     border: 0;
     background: url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat;
     background-position: -13px -1060px;
+    cursor: pointer;
+    margin-right: 10px;
+    outline: 0;
 }
 
 

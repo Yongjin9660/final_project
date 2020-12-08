@@ -1,16 +1,23 @@
 import React from "react";
+import { connect } from 'react-redux';
 import '../style/Review.css';
+import axios from 'axios';
 import review from '../lib/Review';
+
 
 class Review extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          isLoading: true,
-          rating:0,
-          reviews: []
+            isLoading: true,
+            rating: 0,
+            reviewText: "",
+            reviews: []
         }
-      }
+    }
+    textChange = (e) => {
+        this.setState({ reviewText: e.target.value })
+    }
 
     componentDidMount() {
         if (this.props.location.state === undefined) {
@@ -19,25 +26,46 @@ class Review extends React.Component {
     }
     clickStar = (e) => {
         var rating = parseInt(e.target.title);
-        this.setState({rating : rating});
+        this.setState({ rating: rating });
         var temp, i;
-        for(i = 1; i<= rating ; i++){
+        for (i = 1; i <= rating; i++) {
             temp = document.getElementById(i);
-            if(i%2 !== 0){
+            if (i % 2 !== 0) {
                 temp.style.backgroundPosition = "0px -1031.5px";
-            }else{
+            } else {
                 temp.style.backgroundPosition = "-13px -1031.5px";
             }
         }
-        for(i = rating + 1; i<= 10 ; i++){
+        for (i = rating + 1; i <= 10; i++) {
             temp = document.getElementById(i);
-            if(i%2 !== 0){
+            if (i % 2 !== 0) {
                 temp.style.backgroundPosition = "0px -1060px";
-            }else{
+            } else {
                 temp.style.backgroundPosition = "-13px -1060px";
             }
         }
-
+    }
+    makeReview = () => {
+        if(this.props.state.isLogin === false){
+            alert("로그인 후 이용해주세요!");
+            return;
+        }
+        if(this.state.reviewText === "" || this.state.rating === 0 ){
+            alert("리뷰를 작성해주세요!");
+            return;
+        }
+        // console.log(this.props.state.email)
+        axios.post('/content/createReview', {
+            content_id : this.props.location.state.content._id,
+            id : Date.now(),
+            email: this.props.state.email,
+            rating: this.state.rating,
+            reviewText: this.state.reviewText
+        })
+        .then(function(res){
+            console.log(res);
+        })
+        .catch(err => console.log('error : ', err));
     }
 
 
@@ -79,19 +107,20 @@ class Review extends React.Component {
                     </div>
 
                     <div className="review">
-                        <textarea></textarea>
-                        <button>리뷰 등록</button>
-                        <br />
-                        <button type="button" className="star1" id="1" title="1" onClick={this.clickStar}></button>
-                        <button type="button" className="star2" id="2" title="2" onClick={this.clickStar}></button>
-                        <button type="button" className="star1" id="3" title="3" onClick={this.clickStar}></button>
-                        <button type="button" className="star2" id="4" title="4" onClick={this.clickStar}></button>
-                        <button type="button" className="star1" id="5" title="5" onClick={this.clickStar}></button>
-                        <button type="button" className="star2" id="6" title="6" onClick={this.clickStar}></button>
-                        <button type="button" className="star1" id="7" title="7" onClick={this.clickStar}></button>
-                        <button type="button" className="star2" id="8" title="8" onClick={this.clickStar}></button>
-                        <button type="button" className="star1" id="9" title="9" onClick={this.clickStar}></button>
-                        <button type="button" className="star2" id="10" title="10" onClick={this.clickStar}></button>
+                        <div className="btn_star">
+                            <button type="button" className="star1" id="1" title="1" onClick={this.clickStar}></button>
+                            <button type="button" className="star2" id="2" title="2" onClick={this.clickStar}></button>
+                            <button type="button" className="star1" id="3" title="3" onClick={this.clickStar}></button>
+                            <button type="button" className="star2" id="4" title="4" onClick={this.clickStar}></button>
+                            <button type="button" className="star1" id="5" title="5" onClick={this.clickStar}></button>
+                            <button type="button" className="star2" id="6" title="6" onClick={this.clickStar}></button>
+                            <button type="button" className="star1" id="7" title="7" onClick={this.clickStar}></button>
+                            <button type="button" className="star2" id="8" title="8" onClick={this.clickStar}></button>
+                            <button type="button" className="star1" id="9" title="9" onClick={this.clickStar}></button>
+                            <button type="button" className="star2" id="10" title="10" onClick={this.clickStar}></button>
+                        </div>
+                        <textarea value={this.state.reviewText} onChange={this.textChange}></textarea>
+                        <button onClick={this.makeReview}>리뷰 등록</button>
                     </div>
 
                 </div>
@@ -102,4 +131,9 @@ class Review extends React.Component {
     }
 }
 
-export default Review;
+const mapStateToProps = (state) => ({
+    state: state
+});
+
+
+export default connect(mapStateToProps, null)(Review);
