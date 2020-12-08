@@ -72,6 +72,19 @@ router.post('/createReview', (req, res)=>{
         .catch(err => console.log(err))
 })
 
+router.get('/review/:id', (req, res)=>{
+    console.log("REview ID");
+    console.log(req.params.id);
+    Content.findById(req.params.id)
+        .then(data => {
+            res.status(200).json(data.reviews);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500);
+        })
+})
+
 
 
 module.exports = router;

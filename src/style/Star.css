@@ -1,0 +1,40 @@
+.Star_Rating .star1{
+    display: inline;
+    width: 12px;
+    height: 24px;
+    border: 0;
+    background: url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat;
+    background-position: 0px -1060px;
+    outline: 0;
+}
+.Star_Rating .star2{
+    margin-left: 0px;
+    display: inline;
+    width: 12px;
+    height: 24px;
+    border: 0;
+    background: url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat;
+    background-position: -13px -1060px;
+    margin-right: 10px;
+    outline: 0;
+}
+.Star_Rating .star3{
+    display: inline;
+    width: 12px;
+    height: 24px;
+    border: 0;
+    background: url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat;
+    background-position: 0px -1031.5px;
+    outline: 0;
+}
+.Star_Rating .star4{
+    margin-left: 0px;
+    display: inline;
+    width: 12px;
+    height: 24px;
+    border: 0;
+    background: url(https://ssl.pstatic.net/static/movie/2019/09/sp_ico3.png) no-repeat;
+    background-position: -13px -1031.5px;
+    margin-right: 10px;
+    outline: 0;
+}
