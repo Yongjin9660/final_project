@@ -92,26 +92,31 @@ class Detail extends React.Component {
                             <img src={content.url} title={content.title} alt={content.title} />
                         </div>
                         <div className="content_info">
-                            <div>{content.title}</div>
-                            <div>{content.year}</div>
-                            <Star rating={content.rating} />
-                            <div>(평점 : {content.rating}, {content.ratingNumber}명 참여)</div>
-                            <div className="div_inline">감독</div>
-                            <div className="tag_inline">{content.director.map(direc => (
+                            <h1 className="title">
+                                {content.title}
+                                <div className="year">({content.year})</div>
+                                <div className={"age"+content.movieRating}>{content.movieRating}</div>
+                            </h1>
+                            <Star rating={content.rating}/>
+                            <div className="rating">{content.rating}</div>
+                            <div className="ratingNumber">{content.ratingNumber}명 참여</div>
+                            <br />
+                            <div className="item">감독</div>
+                            <div className="list">{content.director.map(direc => (
                                 review.makeDirecLink(direc)
                             ))}</div>
                             <br />
-                            <div className="div_inline">배우</div>
-                            <div className="tag_inline">{content.actors.map(actor => (
+                            <div className="item">배우</div>
+                            <div className="list">{content.actors.map(actor => (
                                 review.makeActorLink(actor)
                             ))}</div>
                             <br />
-                            <div className="div_inline">장르</div>
-                            <div className="tag_inline">{content.genre.map(genre => (
+                            <div className="item">장르</div>
+                            <div className="list">{content.genre.map(genre => (
                                 review.makeGenreLink(genre)
                             ))}</div>
-                            <div>관람등급 : {content.movieRating}</div>
-                            <div>{content.desc}</div>
+                            <div className="desc">{content.desc}</div>
+                            <div className="clear"></div>
                         </div>
 
                     </div>

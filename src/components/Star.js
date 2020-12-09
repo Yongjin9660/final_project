@@ -125,17 +125,17 @@ function Star(props) {
     }else if(props.rating <= 8.5){
         return(
             <div className="Star_Rating">
-            <button type="button" className="star3" ></button>
-            <button type="button" className="star4" ></button>
-            <button type="button" className="star3" ></button>
-            <button type="button" className="star4" ></button>
-            <button type="button" className="star3" ></button>
-            <button type="button" className="star4" ></button>
-            <button type="button" className="star3" ></button>
-            <button type="button" className="star4" ></button>
-            <button type="button" className="star1" ></button>
-            <button type="button" className="star2" ></button>
-        </div>
+                <button type="button" className="star3" ></button>
+                <button type="button" className="star4" ></button>
+                <button type="button" className="star3" ></button>
+                <button type="button" className="star4" ></button>
+                <button type="button" className="star3" ></button>
+                <button type="button" className="star4" ></button>
+                <button type="button" className="star3" ></button>
+                <button type="button" className="star4" ></button>
+                <button type="button" className="star1" ></button>
+                <button type="button" className="star2" ></button>
+            </div>
         );
     }else if(props.rating <= 9.5){
         return(

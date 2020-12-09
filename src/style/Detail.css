@@ -2,16 +2,33 @@
     /* background-color: coral; */
     background-color: rgb(30, 30, 30);
     color: wheat;
+    margin-top: 200px;
+}
+.Review a{
+    text-decoration: none;
+    color: rgb(114, 134, 72);
+    margin-left: 5px;
 }
 
 .Review .content_info_area{
-    width: 60%;
+    width: 70%;
+    min-height: 500px;
     border-style: solid;
-    margin-left: 20%;
+    margin-left: 15%;
 }
 
 .Review .content_info_area div{
     display: block;
+}
+.Review .content_info_area .poster{
+    width: 40%;
+    float: right;
+    /* position: relative; */
+    /* float: inline-end; */
+    /* float: inline-start; */
+}
+.Review .content_info_area .poster img{
+    width: 100%;
 }
 
 .Review .content_info_area .content_info{
@@ -19,31 +36,45 @@
     /* position: relative; */
 }
 
+.Review .content_info_area .content_info .title{
+    margin-left: 5%;
+}
+.Review .content_info_area .content_info .year{
+    display: inline;
+    color: blue;
+}
+.Review .content_info_area .content_info .Star_Rating{
+    margin-left: 5%;
+    display: inline;
+}
+.Review .content_info_area .content_info .rating{
+    display: inline;
+    font-size: xx-large;
+}
+.Review .content_info_area .content_info .ratingNumber{
+    display: inline;
+    font-size: large;
+    margin-left: 10px;
+}
+.Review .content_info_area .content_info .item{
+    display: inline;
+    font-size: large;
+    margin-left: 5%;
+}
+.Review .content_info_area .content_info .list{
+    display: inline;
+    font-size: large;
+    margin-left: 5%;
+}
+
 .Review .content_info_area .content_info .div_inline{
     display: inline;
     color: red;
 }
 
-.Review .content_info_area .content_info .tag_inline{
-    /* display: inline; */
-    margin-left: 5px;
-}
-.Review .content_info_area .content_info .tag_inline a{
-    margin-left: 5px;
-   
-}
 
-.Review .content_info_area .poster{
-    width: 50%;
-    /* float: right; */
-    position: relative;
-    /* float: inline-end; */
-    /* float: inline-start; */
-    position: relative;
-}
-.Review .content_info_area .poster img{
-   width: 100%;
-}
+
+
 .Review .review {
     margin-top: 20px;
 }
@@ -57,6 +88,11 @@
     display: inline;
     width: 250px;
 }
+
+
+
+
+
 .Review .review .star1{
     display: inline;
     width: 12px;
@@ -79,8 +115,54 @@
     margin-right: 10px;
     outline: 0;
 }
-
-
-/* .Review .content_info_area .clear{
+.Review .age19{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: red;
+    text-align: center;
+    vertical-align: middle;
+    font-size: medium;
+    display: inline;
+    float: right;
+    margin-right: 30px;
+  }
+  .Review .age15{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: blue;
+    text-align: center;
+    vertical-align: middle;
+    font-size: medium;
+    display: inline;
+    float: right;
+    margin-right: 30px;
+  }
+  .Review .age12{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: orange;
+    text-align: center;
+    vertical-align: middle;
+    font-size: medium;
+    display: inline;
+    float: right;
+    margin-right: 30px;
+  }
+   .Review .age1{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: green;
+    text-align: center;
+    vertical-align: middle;
+    font-size: medium;
+    display: inline;
+    float: right;
+    margin-right: 30px;
+  }
+  .Review .clear{
     clear: both;
-} */
+}
