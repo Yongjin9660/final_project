@@ -76,18 +76,24 @@
 }
 
 .Detail .review {
-    text-align: center;
     margin-top: 30px;
+    padding-bottom: 3%;
 }
 
 .Detail .review .btn_star{
-    margin-left: 50px;
-    margin-right: 100px;
+    margin-left: 17%;
+    margin-right: 1%;
+    margin-bottom: 15px;
     display: inline;
 }
 .Detail .review textarea{
     display: inline;
-    width: 250px;
+    width: 50%;
+    height: 45px;
+    resize: none;
+}
+.Detail .review .btn_createReview{
+    background-color: steelblue;
 }
 
 .Detail .review ul{

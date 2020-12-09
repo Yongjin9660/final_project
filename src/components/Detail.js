@@ -22,9 +22,8 @@ class Detail extends React.Component {
     }
     getReviews = async () => {
         var id = this.props.location.state.content._id;
-        await axios.get(`http://localhost:4000/content/review/${id}`, { id: id })
+        await axios.get(`/content/review/${id}`, { id: id })
             .then(review => {
-                console.log(review.data);
                 this.setState({ reviews: review.data, isLoading: false });
             })
     }
@@ -83,7 +82,6 @@ class Detail extends React.Component {
 
     render() {
         const { content } = this.props.location.state;
-        console.log(content);
 
         if (this.props.location.state) {
             return (
@@ -116,8 +114,6 @@ class Detail extends React.Component {
                                 review.makeGenreLink(genre)
                             ))}</div>
 
-
-
                             <div className="desc">{content.desc}</div>
                             <div className="clear"></div>
                         </div>
@@ -138,7 +134,7 @@ class Detail extends React.Component {
                             <button type="button" className="btn_star2" id="10" title="10" onClick={this.clickStar}></button>
                         </div>
                         <textarea value={this.state.reviewText} onChange={this.textChange}></textarea>
-                        <button onClick={this.makeReview}>리뷰 등록</button>
+                        <button className="btn_createReview" onClick={this.makeReview}>리뷰 등록</button>
                         <br />
                         {this.state.isLoading ? (
                             <div className="Loading">
@@ -148,12 +144,9 @@ class Detail extends React.Component {
                                 <div className="reveiw_list">
                                     <ul>
                                         {this.state.reviews.map(review => (
-                                            <li>
-                                                <Review
-                                                    key={review.id}
-                                                    review={review}
-                                                />
-                                            </li>
+                                            <Review
+                                                review={review}
+                                            />
                                         ))}
                                     </ul>
                                     <div className="clear"></div>

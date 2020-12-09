@@ -73,7 +73,7 @@ router.post('/createReview', (req, res)=>{
 })
 
 router.get('/review/:id', (req, res)=>{
-    console.log("REview ID");
+    console.log("Review ID");
     console.log(req.params.id);
     Content.findById(req.params.id)
         .then(data => {

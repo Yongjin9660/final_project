@@ -30,8 +30,13 @@
     float: left;
     margin-left: 20px;
 }
+._review ._review_delete{
+    margin-right: 20px;
+    float: right;
+}
 ._review ._review_id{
     display: block;
     text-align: right;
     margin-right: 20px;
 }
+
