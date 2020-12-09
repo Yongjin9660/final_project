@@ -72,16 +72,17 @@ class Detail extends React.Component {
             rating: this.state.rating,
             reviewText: this.state.reviewText
         })
-            .then(function (res) {
-                console.log(res);
-            })
-            .catch(err => console.log('error : ', err));
+        .then(function (res) {
+            console.log(res);
+            alert("리뷰를 등록하였습니다.");
+            window.location.reload(true);
+        })
+        .catch(err => console.log('error : ', err));
     }
 
 
     render() {
         const { content } = this.props.location.state;
-
         console.log(content);
 
         if (this.props.location.state) {
@@ -125,16 +126,16 @@ class Detail extends React.Component {
 
                     <div className="review">
                         <div className="btn_star">
-                            <button type="button" className="star1" id="1" title="1" onClick={this.clickStar}></button>
-                            <button type="button" className="star2" id="2" title="2" onClick={this.clickStar}></button>
-                            <button type="button" className="star1" id="3" title="3" onClick={this.clickStar}></button>
-                            <button type="button" className="star2" id="4" title="4" onClick={this.clickStar}></button>
-                            <button type="button" className="star1" id="5" title="5" onClick={this.clickStar}></button>
-                            <button type="button" className="star2" id="6" title="6" onClick={this.clickStar}></button>
-                            <button type="button" className="star1" id="7" title="7" onClick={this.clickStar}></button>
-                            <button type="button" className="star2" id="8" title="8" onClick={this.clickStar}></button>
-                            <button type="button" className="star1" id="9" title="9" onClick={this.clickStar}></button>
-                            <button type="button" className="star2" id="10" title="10" onClick={this.clickStar}></button>
+                            <button type="button" className="btn_star1" id="1" title="1" onClick={this.clickStar}></button>
+                            <button type="button" className="btn_star2" id="2" title="2" onClick={this.clickStar}></button>
+                            <button type="button" className="btn_star1" id="3" title="3" onClick={this.clickStar}></button>
+                            <button type="button" className="btn_star2" id="4" title="4" onClick={this.clickStar}></button>
+                            <button type="button" className="btn_star1" id="5" title="5" onClick={this.clickStar}></button>
+                            <button type="button" className="btn_star2" id="6" title="6" onClick={this.clickStar}></button>
+                            <button type="button" className="btn_star1" id="7" title="7" onClick={this.clickStar}></button>
+                            <button type="button" className="btn_star2" id="8" title="8" onClick={this.clickStar}></button>
+                            <button type="button" className="btn_star1" id="9" title="9" onClick={this.clickStar}></button>
+                            <button type="button" className="btn_star2" id="10" title="10" onClick={this.clickStar}></button>
                         </div>
                         <textarea value={this.state.reviewText} onChange={this.textChange}></textarea>
                         <button onClick={this.makeReview}>리뷰 등록</button>

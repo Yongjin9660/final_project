@@ -105,9 +105,7 @@
 }
 
 
-
-
-.Detail .review .star1{
+.Detail .review .btn_star1{
     display: inline;
     width: 12px;
     height: 24px;
@@ -117,7 +115,7 @@
     cursor: pointer;
     outline: 0;
 }
-.Detail .review .star2{
+.Detail .review .btn_star2{
     margin-left: 0px;
     display: inline;
     width: 12px;
