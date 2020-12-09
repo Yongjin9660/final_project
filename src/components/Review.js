@@ -1,11 +1,28 @@
+import { text } from "body-parser";
 import React from "react";
+import '../style/Review.css'
+import Star from './Star';
 
 function Review(props) {
+
+    const {text, rating, email, id} = props.review;
+
+
+    const getDate = (id) => {
+        var date = new Date(id);
+        var result = date.toLocaleDateString() + "" + date.toLocaleTimeString().slice(2,);
+        return result;
+    }
     return (
-        <div className="Review">
-            <h1>{props.review.text}</h1>
-            <h2>{props.review.rating}</h2>
-            <h3>{props.review.email}</h3>
+        <div className="_review">
+            <Star rating={rating} />
+            <div className="_review_detail">
+                <p className="_review_text">{text}</p>
+                <div className="_review_additinal">
+                    <div className="_review_email">{email}</div>
+                    <div className="_review_id">{getDate(id)}</div>
+                </div>
+            </div>
         </div>
     );
 

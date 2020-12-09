@@ -1,0 +1,37 @@
+._review{
+    margin-left: 15%;
+}
+._review .Star_Rating{
+    display: inline;
+    float: left;
+    width: 170px;
+}
+._review ._review_detail{
+    float: left;
+    margin-left: 15px;
+    width: 60%;
+    background-color: slategrey;
+    display: inline-block;
+}
+._review ._review_text{
+    display: block;
+    text-align: left;
+
+    margin-top: 3px;
+    margin-bottom: 3px;
+    word-break: break-all;
+
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+._review ._review_email{
+    display: block;
+    float: left;
+    margin-left: 20px;
+}
+._review ._review_id{
+    display: block;
+    text-align: right;
+    margin-right: 20px;
+}

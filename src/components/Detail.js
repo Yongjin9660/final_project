@@ -86,7 +86,7 @@ class Detail extends React.Component {
 
         if (this.props.location.state) {
             return (
-                <div className="Review">
+                <div className="Detail">
                     <div className="content_info_area">
                         <div className="poster">
                             <img src={content.url} title={content.title} alt={content.title} />
@@ -95,26 +95,28 @@ class Detail extends React.Component {
                             <h1 className="title">
                                 {content.title}
                                 <div className="year">({content.year})</div>
-                                <div className={"age"+content.movieRating}>{content.movieRating}</div>
+                                <div className={"age" + content.movieRating}>{content.movieRating}</div>
                             </h1>
-                            <Star rating={content.rating}/>
+                            <Star rating={content.rating} />
                             <div className="rating">{content.rating}</div>
                             <div className="ratingNumber">{content.ratingNumber}명 참여</div>
                             <br />
+
                             <div className="item">감독</div>
                             <div className="list">{content.director.map(direc => (
                                 review.makeDirecLink(direc)
                             ))}</div>
-                            <br />
                             <div className="item">배우</div>
-                            <div className="list">{content.actors.map(actor => (
+                            <div className="list" >{content.actors.map(actor => (
                                 review.makeActorLink(actor)
                             ))}</div>
-                            <br />
                             <div className="item">장르</div>
                             <div className="list">{content.genre.map(genre => (
                                 review.makeGenreLink(genre)
                             ))}</div>
+
+
+
                             <div className="desc">{content.desc}</div>
                             <div className="clear"></div>
                         </div>
@@ -153,6 +155,7 @@ class Detail extends React.Component {
                                             </li>
                                         ))}
                                     </ul>
+                                    <div className="clear"></div>
                                 </div>
                             )
                         }
