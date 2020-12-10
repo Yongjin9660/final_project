@@ -4,6 +4,7 @@ import { actionCreators } from './store';
 import { Route, BrowserRouter } from 'react-router-dom';
 
 import Menu from "./components/Menu";
+import Sort from "./components/Sort";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import Admin from "./components/Admin";
@@ -27,14 +28,16 @@ function App({ state, dispatchLogin }){
     <div className="App">
       <BrowserRouter>
         <Menu />
+       
         <div className="Body">
-          <Route path="/" exact={true} component={Home} />
           <Route path="/admin" exact={true} component={Admin} />
           <Route path="/profile" exact={true} component={Profile} />
           <Route path="/login" exact={true} component={Login} />
           <Route path="/signup" exact={true} component={SignUp} />
           <Route path="/review/:id" exact={true} component={Detail} />
           <Route path="/sort/director/:name" exact={true} component={Director} />
+          <Route path="/" exact={true} component={Sort} />
+          <Route path="/" exact={true} component={Home} />
         </div>
       </BrowserRouter>
     </div>

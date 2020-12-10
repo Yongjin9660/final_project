@@ -27,9 +27,6 @@
 
 .Admin table textarea{
     width: 500px;
-    max-width: 500px;
-    min-width: 500px;
-    max-height: 300px;
     background-color: rgb(61, 54, 54);
     color: gray;
     text-align: center;
@@ -37,9 +34,11 @@
     font-size: 15px;
     border-radius: 5px;
     border-style: none;
+    resize: none;
 }
 
 .Admin table input{
+    height: 30px;
     width: 500px;
     background-color: rgb(61, 54, 54);
     color: gray;
@@ -57,12 +56,10 @@
 
 #TA_direc{
     height: 30px;
-    max-height: 100px;
 }
 
 #TA_actor{
-    height: 30px;
-    max-height: 100px;
+    height: 60px;
 }
 
 #TA_genre{

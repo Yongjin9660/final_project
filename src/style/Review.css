@@ -16,11 +16,9 @@
 ._review ._review_text{
     display: block;
     text-align: left;
-
     margin-top: 3px;
     margin-bottom: 3px;
     word-break: break-all;
-
     margin-left: 20px;
     margin-right: 20px;
 }
