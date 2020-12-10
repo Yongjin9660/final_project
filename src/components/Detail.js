@@ -146,6 +146,7 @@ class Detail extends React.Component {
                                         {this.state.reviews.map(review => (
                                             <Review
                                                 review={review}
+                                                _id={content._id}
                                             />
                                         ))}
                                     </ul>

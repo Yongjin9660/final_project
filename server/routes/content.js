@@ -73,8 +73,6 @@ router.post('/createReview', (req, res)=>{
 })
 
 router.get('/review/:id', (req, res)=>{
-    console.log("Review ID");
-    console.log(req.params.id);
     Content.findById(req.params.id)
         .then(data => {
             res.status(200).json(data.reviews);
@@ -82,6 +80,22 @@ router.get('/review/:id', (req, res)=>{
         .catch(err => {
             console.log(err);
             res.status(500);
+        })
+})
+
+router.post('/deleteReview', (req, res)=>{
+    var data = req.body;
+    console.log(data);
+
+    Content.updateOne({_id : data._id}, {$pull : {reviews : {id : data.date}}})
+        .then(() => {
+            let result= {success : true};
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+            let result = { success : false};
+            res.status(500).json(result);
         })
 })
 
