@@ -10,7 +10,9 @@ class Home extends React.Component {
     this.state = {
       isLoading: true,
       criteria: "",
-      contents: []
+      contents: [],
+      showContents: [],
+      searchTitle: ""
     }
   }
 
@@ -18,9 +20,8 @@ class Home extends React.Component {
     await axios.get("http://localhost:4000/content/")
       .then(data => {
         console.log(data.data);
-        var contents = data.data;
-        // var contents = data.data.sort((a, b) => Number(b.rating) - Number(a.rating));
-        this.setState({ contents: contents, isLoading: false, dataNumber: data.data.length });
+        var contents = data.data.sort((a, b) => Number(b.rating) - Number(a.rating));
+        this.setState({ contents: contents, showContents: contents, isLoading: false, dataNumber: data.data.length });
       })
   };
   componentDidMount() {
@@ -28,43 +29,58 @@ class Home extends React.Component {
   }
 
   render() {
-    const { isLoading, contents } = this.state;
+    const { isLoading, contents, showContents, criteria, searchTitle } = this.state;
+
+    if(this.props.state.searchTitle === ""){
+
+    }else{
+      var sT = this.props.state.searchTitle;
+      if(sT !== searchTitle){
+        let temp = contents.filter(function(content){
+          return content.title.includes(sT);
+        });
+        if(temp.length === 0){
+          alert("해당하는 작품이 없습니다.");
+        }else{
+          this.setState({showContents : temp, searchTitle : sT});
+        }
+      }
+    }
 
     if(this.props.state.criteria === "rating"){
-      if(this.state.criteria !== "rating"){
-        var temp = contents.sort((a, b) => Number(b.rating) - Number(a.rating));
-        this.setState({ contents : temp , criteria:"rating"});
+      if(criteria !== "rating"){
+        let temp = showContents.sort((a, b) => Number(b.rating) - Number(a.rating));
+        this.setState({ showContents : temp , criteria:"rating"});
       }
     }
     else if(this.props.state.criteria === "ratingNumber"){
-      if(this.state.criteria !== "ratingNumber"){
-        var temp = contents.sort((a, b) => Number(b.ratingNumber) - Number(a.ratingNumber));
-        this.setState({ contents : temp , criteria:"ratingNumber"});
+      if(criteria !== "ratingNumber"){
+        let temp = showContents.sort((a, b) => Number(b.ratingNumber) - Number(a.ratingNumber));
+        this.setState({ showContents : temp , criteria:"ratingNumber"});
       }
     }
     else if(this.props.state.criteria === "new"){
-      if(this.state.criteria !== "new"){
-        console.log(contents[0].addDate);
-        var temp = contents.sort((a, b) => {
+      if(criteria !== "new"){
+        let temp = showContents.sort((a, b) => {
           if(a.addDate > b.addDate)
             return -1;
           if(a.addDate < b.addDate)
             return 1;
           return 0;
         });
-        this.setState({ contents : temp , criteria:"new"});
+        this.setState({ showContents : temp , criteria:"new"});
       }
     }
     else if(this.props.state.criteria === "old"){
-      if(this.state.criteria !== "old"){
-        var temp = contents.sort((a, b) => {
+      if(criteria !== "old"){
+        let temp = showContents.sort((a, b) => {
           if(a.addDate < b.addDate)
             return -1;
           if(a.addDate > b.addDate)
             return 1;
           return 0;
         });
-        this.setState({ contents : temp , criteria:"old"});
+        this.setState({ showContents : temp , criteria:"old"});
       }
     }
 
@@ -76,7 +92,7 @@ class Home extends React.Component {
           </div>
         ) : (
             <div className="contents">
-              {contents.map(content => (
+              {showContents.map(content => (
                 <Content
                   key={content._id}
                   id={content._id}

@@ -3,6 +3,7 @@ import {createStore} from 'redux';
 const LOGIN = "LOGIN";
 const LOGOUT = "LOGOUT";
 const SORT = "SORT";
+const SEARCH = "SEARCH";
 
 const Login = (email, name, isLogin, isAdmin) => {
     return{
@@ -31,12 +32,20 @@ const Sort = (criteria) => {
     }
 }
 
+const Search = (searchTitle) => {
+    return {
+        type: SEARCH,
+        searchTitle
+    }
+}
+
 const initialState = {
     email : "",
     name : "",
     isLogin : false,
     isAdmin : false,
     criteria : "",
+    searchTitle : ""
 };
 
 const reducer = (state = initialState, action) => {
@@ -47,6 +56,8 @@ const reducer = (state = initialState, action) => {
             return {...state, email : action.email, name : action.name, isLogin : action.isLogin, isAdmin : action.isAdmin};   
         case SORT:
             return {...state, criteria : action.criteria};
+        case SEARCH:
+            return {...state, searchTitle : action.searchTitle};
         default:
             return state;
     }
@@ -56,6 +67,7 @@ export const actionCreators = {
     Login,
     Logout,
     Sort,
+    Search
 };
 
 const store = createStore(reducer);

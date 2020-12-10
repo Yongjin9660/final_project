@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { actionCreators } from '../store';
 import '../style/Sort.css';
 
-function Sort({ dispatchCriteria }) {
-    
+function Sort({ dispatchCriteria, dispatchSearch }) {
+    const [text, setText] = useState("");
    
-    // function sortBy(criteria){
-    //     dispatchCriteria(criteria);
-    // }
     return(
         <div className="Sort">
+
+            <input type="text" value={text} onChange={e => setText(e.target.value)}></input>
+            <button onClick={()=>{
+                setText("");
+                dispatchSearch(text);
+            }  
+            }>검색</button>
+
             <button onClick={()=>{
                 dispatchCriteria("rating");
             }}>평점 순</button>
-
             <button onClick={()=>{
                 dispatchCriteria("ratingNumber");
             }}>평점 많은 순</button>
@@ -28,9 +32,10 @@ function Sort({ dispatchCriteria }) {
     );
 }
 
-function mapDispatchToProps(dispatch, ownProps) {
+function mapDispatchToProps(dispatch) {
     return {
-        dispatchCriteria: (criteria) => dispatch(actionCreators.Sort(criteria))
+        dispatchCriteria: (criteria) => dispatch(actionCreators.Sort(criteria)),
+        dispatchSearch: (searchTitle) => dispatch(actionCreators.Search(searchTitle))
     };
 }
 
