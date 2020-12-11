@@ -18,14 +18,14 @@
     font-size: 15px;
     border-radius: 5px;
     background-color: rgb(61, 54, 54);
-    color: gray;
+    color: silver;
 }
 
 .Login .login_form button {
     grid-row: span 2;
     margin-left: 4px;
     background-color: rgb(61, 54, 54);
-    color: rgb(114, 134, 72);
+    color: silver;
     font-weight: 600;
     font-size: 17px;
     border-radius: 5px;

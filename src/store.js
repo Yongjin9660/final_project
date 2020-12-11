@@ -4,6 +4,7 @@ const LOGIN = "LOGIN";
 const LOGOUT = "LOGOUT";
 const SORT = "SORT";
 const SEARCH = "SEARCH";
+const SETCONTENTS = "SETCONTETNS";
 
 const Login = (email, name, isLogin, isAdmin) => {
     return{
@@ -39,13 +40,21 @@ const Search = (searchTitle) => {
     }
 }
 
+const SetContents = (contents) => {
+    return{
+        type: SETCONTENTS,
+        contents
+    }
+}
+
 const initialState = {
     email : "",
     name : "",
     isLogin : false,
     isAdmin : false,
     criteria : "",
-    searchTitle : ""
+    searchTitle : "",
+    contents : []
 };
 
 const reducer = (state = initialState, action) => {
@@ -58,6 +67,8 @@ const reducer = (state = initialState, action) => {
             return {...state, criteria : action.criteria};
         case SEARCH:
             return {...state, searchTitle : action.searchTitle};
+        case SETCONTENTS:
+            return {...state, contents : action.contents};
         default:
             return state;
     }
@@ -67,7 +78,8 @@ export const actionCreators = {
     Login,
     Logout,
     Sort,
-    Search
+    Search,
+    SetContents
 };
 
 const store = createStore(reducer);

@@ -7,34 +7,36 @@
 }
 
 .Signup .Signup_table td{
-    color: rgb(114, 134, 72);
+    color: silver;
     text-align: center;
 }
 
 .Login .form input {
     background-color: skyblue;
-    color: blue;
+    color: silver;
 }
 
 .Signup table input{
     width: 500px;
     height: 30px;
     background-color: rgb(61, 54, 54);
-    color: gray;
+    color: silver;
     text-align: center;
     font-weight: 600;
     font-size: 15px;
     border-radius: 5px;
     border-style: none;
     margin-bottom: 5px;
+    margin-left: 15px;
 }
 
 .Signup table button{
     background-color: rgb(61, 54, 54);
-    color: rgb(114, 134, 72);
+    color: silver;
     font-weight: 600;
     font-size: 15px;
     border-radius: 5px;
+    text-align: center;
 }
 .Signup table button:hover{
     cursor: pointer;

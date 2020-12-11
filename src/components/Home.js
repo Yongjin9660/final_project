@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Content from './Content';
 import { connect } from 'react-redux';
+import { actionCreators } from '../store';
 import "../style/Home.css";
 
 class Home extends React.Component {
@@ -19,7 +20,7 @@ class Home extends React.Component {
   getContents = async () => {
     await axios.get("http://localhost:4000/content/")
       .then(data => {
-        console.log(data.data);
+        this.props.dispatchContents(data.data);
         var contents = data.data.sort((a, b) => Number(b.rating) - Number(a.rating));
         this.setState({ contents: contents, showContents: contents, isLoading: false, dataNumber: data.data.length });
       })
@@ -39,11 +40,8 @@ class Home extends React.Component {
         let temp = contents.filter(function(content){
           return content.title.includes(sT);
         });
-        if(temp.length === 0){
-          alert("해당하는 작품이 없습니다.");
-        }else{
-          this.setState({showContents : temp, searchTitle : sT});
-        }
+        this.setState({showContents : temp, searchTitle : sT});
+        
       }
     }
 
@@ -111,5 +109,10 @@ const mapStateToProps = (state) => ({
   state: state
 });
 
+function mapDispatchToProps(dispatch) {
+  return {
+      dispatchContents: (contents) => dispatch(actionCreators.SetContents(contents))
+  };
+}
 
-export default connect(mapStateToProps, null)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,4 +1,3 @@
-import { text } from "body-parser";
 import React from "react";
 import { connect } from 'react-redux';
 import '../style/Review.css'
@@ -15,7 +14,6 @@ class Review extends React.Component{
 
     render(){
         const { text, rating, email, id } = this.props.review;
-        console.log(this.props.state.email);
         return(
             <li key={id}>
                 <div className="_review">

@@ -1,6 +1,7 @@
 import React from 'react';
-import axios from 'axios';
-// import Content from './Content';
+import { connect } from "react-redux";
+import '../../style/Find.css';
+import Content from '../Content';
 
 
 class Director extends React.Component {
@@ -12,52 +13,39 @@ class Director extends React.Component {
     }
   }
 
-//   getContents = async () => {
-//     await axios.get("http://localhost:4000/content/")
-//       .then(data => {
-//         this.setState({ contents: data.data, isLoading: false, dataNumber: data.data.length });
-//       })
-//   };
-//   componentDidMount() {
-//     this.getContents();
-//   }
-
-//   makePage = (i) => {
-//     return <button onClick={() => { this.props.dispatchPage(i) }}>{i}</button>
-//   }
-
   render() {
-    const { isLoading, contents } = this.state;
+    const { contents } = this.props.state;
+  
+    
+    var direcContents = [];
+
+    for(var i=0 ; i < contents.length ; i++){
+      for(var j=0 ; j < contents[i].director.length ; j++){
+        if(this.props.location.state.direc === contents[i].director[j]){
+          direcContents.push(contents[i]);
+          break;
+        }
+      }
+    }
 
     return (
-      <div className="Sort" style={{backgroundColor:"yellow"}}>
-          <h1>Direc</h1>
-          <h1>Direc</h1>
-          <h1>Direc</h1>
-          <h1>Direc</h1>
-          <h1>Direc</h1>
-          <h1>Direc</h1>
-          <h1>Direc</h1>
-          <h1>Direcsssssssssssssssssssssssssssssssssssss</h1>
-        {/* {isLoading ? (
-          <div className="Loading">
-            <span>Loading...</span>
-          </div>
-        ) : (
-            <div className="contents">
-              {contents.map(content => (
-                <Content
-                  key={content._id}
-                  id={content._id}
-                  content={content}
-                />
-              ))}
-            </div>
-          )
-        } */}
+      <div className="Find">
+        <div className="contents">
+          {direcContents.map(content => (
+            <Content
+              key={content._id}
+              id={content._id}
+              content={content}
+            />
+          ))}
+        </div>
       </div>
     );
   }
 }
 
-export default Director;
+function mapStateToProps(state) {
+  return { state: state };
+}
+
+export default connect(mapStateToProps, null)(Director);
