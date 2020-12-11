@@ -28,6 +28,9 @@
     float: left;
     margin-left: 20px;
 }
+._review ._review_email a{
+    color: white;
+}
 ._review ._review_delete{
     margin-right: 20px;
     float: right;

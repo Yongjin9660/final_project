@@ -33,8 +33,32 @@ export function makeGenreLink(str) {
     return result;
 }
 
+export function makeUserLink(str) {
+    var result = <Link to={{
+        pathname: `/sort/user/${str}`,
+        state : { 
+            user : str
+        }
+    }}>{str}</Link>
+
+    return result;
+}
+export function makeTitleLink(id, str) {
+    var result = <Link to={{
+        pathname: `/review/${id}`,
+        state : { 
+            content_id : id
+                        
+        }
+    }}>{str}</Link>
+
+    return result;
+}
+
 export default {
     makeDirecLink,
     makeActorLink,
-    makeGenreLink
+    makeGenreLink,
+    makeUserLink,
+    makeTitleLink
 }

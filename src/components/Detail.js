@@ -5,7 +5,7 @@ import '../style/Detail.css';
 import axios from 'axios';
 import Review from './Review';
 import Star from './Star';
-import review from '../lib/Review';
+import Link from '../lib/Link';
 
 
 class Detail extends React.Component {
@@ -28,7 +28,6 @@ class Detail extends React.Component {
         this.setState({ reviewText: e.target.value })
     }
     getReviews = async () => {
-        // var id = this.props.location.state.content._id;
         var id = this.props.location.state.content_id;
         await axios.get(`/content/review/${id}`, { id: id })
             .then(review => {
@@ -38,9 +37,6 @@ class Detail extends React.Component {
     getContents = async () => {
         await axios.get("http://localhost:4000/content/")
             .then(data => {
-                // this.props.dispatchContents(data.data);
-                // this.setState({ contents: contents, showContents: contents, isLoading: false, dataNumber: data.data.length });
-                // this.setState({ contents: contents, isLoading: false, dataNumber: data.data.length });
                 this.props.dispatchContents(data.data);
                 for (let i = 0; i < data.data.length; i++) {
                     if (data.data[i]._id === this.props.location.state.content_id) {
@@ -128,10 +124,7 @@ class Detail extends React.Component {
 
     render() {
         const { content } = this.state;
-        console.log(this.state.content);
      
-
-
         return (
             <div className="Detail">
                 {this.state.isLoading2 ?
@@ -153,15 +146,15 @@ class Detail extends React.Component {
 
                             <div className="item">감독</div>
                             <div className="list">{this.state.content.director.map(direc => (
-                                review.makeDirecLink(direc)
+                                Link.makeDirecLink(direc)
                             ))}</div>
                             <div className="item">배우</div>
                             <div className="list" >{content.actors.map(actor => (
-                                review.makeActorLink(actor)
+                                Link.makeActorLink(actor)
                             ))}</div>
                             <div className="item">장르</div>
                             <div className="list">{content.genre.map(genre => (
-                                review.makeGenreLink(genre)
+                                Link.makeGenreLink(genre)
                             ))}</div>
 
                             <div className="desc">{content.desc}</div>
@@ -202,12 +195,6 @@ class Detail extends React.Component {
                                             _id={content._id}
                                         /> 
                                     ))}
-                                    {/* {this.state.reviews.map(review => (
-                                        <Review
-                                            review={review}
-                                            _id={content._id}
-                                        />
-                                    ))} */}
                                 </ul>
                                 <div className="clear"></div>
                             </div>

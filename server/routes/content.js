@@ -10,6 +10,16 @@ router.get('/', async (req, res, next) => {
     res.json(contents);
 });
 
+router.post('/reviewlist/:user', async (req, res) => {
+    var email = req.params.user;
+    const Users = await User.find({});
+
+    var user = Users.filter( user =>{
+        return user.email === email
+    });
+    res.status(200).json(user);
+});
+
 router.post('/create', (req, res) => {
     var data = req.body;
 

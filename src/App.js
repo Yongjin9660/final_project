@@ -14,6 +14,7 @@ import Detail from "./components/Detail";
 import Director from "./components/sort/Director";
 import Actor from "./components/sort/Actor";
 import Genre from "./components/sort/Genre";
+import User from "./components/sort/User";
 import './style/App.css'
 
 
@@ -40,6 +41,7 @@ function App({ state, dispatchLogin }){
           <Route path="/sort/director/:name" exact={true} component={Director} />
           <Route path="/sort/actor/:name" exact={true} component={Actor} />
           <Route path="/sort/genre/:name" exact={true} component={Genre} />
+          <Route path="/sort/user/:name" exact={true} component={User} />
           <Route path="/" exact={true} component={Sort} />
           <Route path="/" exact={true} component={Home} />
         </div>

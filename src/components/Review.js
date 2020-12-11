@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../style/Review.css'
 import Star from './Star';
 import axios from 'axios';
+import Link from '../lib/Link';
 
 class Review extends React.Component{
 
@@ -23,7 +24,7 @@ class Review extends React.Component{
                             {text}
                         </p>
                         <div className="_review_additinal">
-                            <div className="_review_email">{email}</div>
+                            <div className="_review_email">{Link.makeUserLink(email)}</div>
                             <div className="_review_id">{this.getDate(id)}</div>
                         </div>
                     </div>
