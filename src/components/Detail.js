@@ -115,7 +115,7 @@ class Detail extends React.Component {
             .catch(err => console.log('error : ', err));
     }
 
-    sortReview = (a, b) => {
+    sortReview = (a) => {
         if(a.email === this.props.state.email)
             return -1;
         else
@@ -134,28 +134,37 @@ class Detail extends React.Component {
                             <img src={content.url} title={content.title} alt={content.title} />
                         </div>
                         <div className="content_info">
-                            <h1 className="title">
-                                {content.title}
+                            <div className="head">
+                                <div className="title">{content.title}</div>
                                 <div className="year">({content.year})</div>
                                 <div className={"age" + content.movieRating}>{content.movieRating}</div>
-                            </h1>
-                            <Star rating={content.rating} />
-                            <div className="rating">{content.rating.toFixed(2)}</div>
-                            <div className="ratingNumber">{content.ratingNumber}명 참여</div>
-                            <br />
+                            </div>
+                            <div className="ratingInfo">
+                                <Star rating={content.rating} />
+                                <div className="rating">{content.rating.toFixed(2)}</div>
+                                <div className="ratingNumber">({content.ratingNumber}명 참여)</div>
+                            </div>
+                
+                            <div className="row">
+                                <div className="item">감독</div>
+                                <div className="list">{this.state.content.director.map(direc => (
+                                    Link.makeDirecLink(direc)
+                                ))}</div>
+                            </div>
 
-                            <div className="item">감독</div>
-                            <div className="list">{this.state.content.director.map(direc => (
-                                Link.makeDirecLink(direc)
-                            ))}</div>
-                            <div className="item">배우</div>
-                            <div className="list" >{content.actors.map(actor => (
-                                Link.makeActorLink(actor)
-                            ))}</div>
-                            <div className="item">장르</div>
-                            <div className="list">{content.genre.map(genre => (
-                                Link.makeGenreLink(genre)
-                            ))}</div>
+                            <div className="row">
+                                <div className="item">배우</div>
+                                <div className="list" >{content.actors.map(actor => (
+                                    Link.makeActorLink(actor)
+                                ))}</div>
+                            </div>
+
+                            <div className="row">
+                                <div className="item">장르</div>
+                                <div className="list">{content.genre.map(genre => (
+                                    Link.makeGenreLink(genre)
+                                ))}</div>
+                            </div>
 
                             <div className="desc">{content.desc}</div>
                             <div className="clear"></div>
