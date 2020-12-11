@@ -17,4 +17,9 @@
     height: 100%;
   }
 
+  .Find .sortBy {
+    color: yellow;
+    text-align: center;
+  }
+
 

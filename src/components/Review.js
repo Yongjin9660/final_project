@@ -29,7 +29,7 @@ class Review extends React.Component{
                     </div>
                     {this.props.state.email === email ? (
                         <button onClick = {() => {
-                            axios.post('/content/deleteReview', {_id: this.props._id ,date : id})
+                            axios.post('/content/deleteReview', {_id: this.props._id ,date : id, email : email, rating : rating})
                             .then(function (res) {
                                 alert("리뷰를 삭제하였습니다.");
                                 window.location.reload(true);

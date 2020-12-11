@@ -108,7 +108,6 @@ class Home extends React.Component {
 const mapStateToProps = (state) => ({
   state: state
 });
-
 function mapDispatchToProps(dispatch) {
   return {
       dispatchContents: (contents) => dispatch(actionCreators.SetContents(contents))

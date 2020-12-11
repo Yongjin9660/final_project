@@ -1,4 +1,5 @@
 const Content = require('../../models/content');
+const User = require('../../models/user');
 
 const express = require('express');
 const router = express.Router();
@@ -9,7 +10,7 @@ router.get('/', async (req, res, next) => {
     res.json(contents);
 });
 
-router.post('/create', (req,res)=>{
+router.post('/create', (req, res) => {
     var data = req.body;
 
     const directors = data.director.split(',');
@@ -17,62 +18,68 @@ router.post('/create', (req,res)=>{
     const genres = data.genre.split(',');
 
     const content = new Content({
-        title : data.title,
+        title: data.title,
         desc: data.desc,
-        director : directors,
-        actors : actors,
+        director: directors,
+        actors: actors,
         year: Number(data.year),
-        genre : genres,
-        movieRating : data.movieRating,
+        genre: genres,
+        movieRating: data.movieRating,
         url: data.url
     });
-    
-    content.save((err)=>{
-        if(err){
+
+    content.save((err) => {
+        if (err) {
             console.log(err);
-            res.send({save : "fail"});
+            res.send({ save: "fail" });
         }
-        else{
-            res.send({save : "success"});
+        else {
+            res.send({ save: "success" });
         }
     })
 })
 
-router.post('/createReview', (req, res)=>{
+router.post('/createReview', (req, res) => {
     var data = req.body;
     console.log(data);
-    const review = {id : data.id, email : data.email, rating: data.rating, text: data.reviewText};
-    Content.updateOne({_id : data.content_id}, {$push : {reviews : review}})
+
+    const review = { id: data.id, email: data.email, rating: data.rating, text: data.reviewText };
+    const userReview = { content_id: data.content_id, rating: data.rating, text: data.reviewText, Date: data.id }
+
+    Content.updateOne({ _id: data.content_id }, { $push: { reviews: review } })
         .then(() => {
             Content.findById(data.content_id)
                 .then(t_content => {
-                    // console.log(data);
-                    var t_RatingNum = t_content.ratingNumber;
-                    var t_Rating = t_content.rating;
-                    console.log(t_RatingNum);
-                    console.log(t_Rating);
-
-                    var t_total = t_RatingNum * t_Rating + data.rating;
+                    let t_RatingNum = t_content.ratingNumber;
+                    let t_Rating = t_content.rating;
+                    let t_total = t_RatingNum * t_Rating + data.rating;
                     t_RatingNum++;
                     t_total = t_total / t_RatingNum;
 
-                    console.log(t_total);
+                    User.updateOne({ email: data.email }, { $push: { reviews: userReview } })
+                    .then(() => {
+                        console.log("User Success");
+                        // let result = { success: true, content: data };
+                        // res.status(200).json(result);
+                    })
 
-                    Content.findByIdAndUpdate(data.content_id, {rating : t_total, ratingNumber : t_RatingNum}, (err, data)=>{
-                        if(err){
-                            let result = { success : false};
+                    Content.findByIdAndUpdate(data.content_id, { rating: t_total, ratingNumber: t_RatingNum }, (err, data) => {
+                        if (err) {
+                            let result = { success: false };
                             res.status(500).json(result);
                         }else{
-                            let result= {success : true, content : data};
-                            res.status(200).json(result);
+                            // let result = { success: true, content: data };
+                            res.status(200).json(data);
                         }
                     })
+                   
                 })
+         
         })
         .catch(err => console.log(err))
 })
 
-router.get('/review/:id', (req, res)=>{
+router.get('/review/:id', (req, res) => {
     Content.findById(req.params.id)
         .then(data => {
             res.status(200).json(data.reviews);
@@ -83,18 +90,38 @@ router.get('/review/:id', (req, res)=>{
         })
 })
 
-router.post('/deleteReview', (req, res)=>{
+router.post('/deleteReview', (req, res) => {
     var data = req.body;
     console.log(data);
 
-    Content.updateOne({_id : data._id}, {$pull : {reviews : {id : data.date}}})
+    Content.updateOne({ _id: data._id }, { $pull: { reviews: { id: data.date } } })
         .then(() => {
-            let result= {success : true};
-            res.status(200).json(result);
+            Content.findById(data._id)
+                .then((t_content) => {
+                    let t_RatingNum = t_content.ratingNumber;
+                    let t_Rating = t_content.rating;
+                    let t_total = t_RatingNum * t_Rating - data.rating;
+                    t_RatingNum--;
+                    t_total = t_total / t_RatingNum;
+
+                    Content.findByIdAndUpdate(data._id, { rating: t_total, ratingNumber: t_RatingNum }, (err, data) => {
+                        if (err) {
+                            let result = { success: false };
+                            res.status(500).json(result);
+                        }
+                    })
+
+                    User.updateOne({ email: data.email }, { $pull: { reviews: { Date: data.date } } })
+                    .then(() => {
+                        console.log("Delete Success");
+                        let result = { success: true };
+                        res.status(200).json(result);
+                    })
+                })
         })
         .catch(err => {
             console.log(err);
-            let result = { success : false};
+            let result = { success: false };
             res.status(500).json(result);
         })
 })

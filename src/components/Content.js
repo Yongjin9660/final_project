@@ -52,13 +52,13 @@ function Content({ id, content }) {
         }
         return result;
     }
-
     return (
+        
         <div className="content">
             <Link to={{
                 pathname: `/review/${id}`,
                 state: {
-                    content: content
+                    content_id : id
                 }
             }}>
                 <img src={content.url} title={content.title} alt={content.title} />
