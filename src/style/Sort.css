@@ -1,4 +1,37 @@
 .Sort{
     padding-top: 20px;
-    text-align: center;
 }
+.Sort .buttons{
+    margin-left: 2%;
+    display: inline;
+} 
+.Sort .search{
+    display: inline;
+    margin-left: 52%;
+}
+.Sort .search input{
+    border: none;
+    font-size: 15px;
+}
+.Sort .search button{
+    margin-left: 2px;
+}
+.Sort button{
+    border: none;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+}
+@media screen and (max-width: 1300px) {
+    .Sort {
+        padding-top: 5.5%;
+    }
+    .Sort .search{
+        display: inline;
+        margin-left: 30%;
+    }
+    .Sort .buttons{
+        margin-left: 8%;
+        display: inline;
+    } 
+  }

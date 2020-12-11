@@ -10,6 +10,7 @@
     box-shadow: 3px 3px 3px rgb(112, 102, 102);
     border-radius: 5px;
   }
+
   
   @media screen and (max-width: 1300px) {
     .Menu {
@@ -22,9 +23,13 @@
     }
     .Menu a {
         padding-left: 20px;
+        display: inline;
       }
   }
-  
+  .Menu .Logout{
+    display: inline;
+    margin-left: 1%;
+  }
   .Menu a {
     text-decoration: none;
     color: silver;
@@ -32,6 +37,7 @@
     font-size: 12px;
     text-align: center;
     font-weight: 600;
+    display: inline;
   }
   
   .Menu a:not(:last-child) {

@@ -9,25 +9,29 @@ function Sort({ dispatchCriteria, dispatchSearch }) {
     return(
         <div className="Sort">
 
-            <input type="text" value={text} onChange={e => setText(e.target.value)}></input>
-            <button onClick={()=>{
-                setText("");
-                dispatchSearch(text);
-            }  
-            }>검색</button>
+            <div className="search">
+                <input type="text" value={text} onChange={e => setText(e.target.value)} placeholder="제목을 입력하세요"></input>
+                <button onClick={()=>{
+                    setText("");
+                    dispatchSearch(text);
+                }  
+                }>검색</button>
+            </div>
 
-            <button onClick={()=>{
-                dispatchCriteria("rating");
-            }}>평점 순</button>
-            <button onClick={()=>{
-                dispatchCriteria("ratingNumber");
-            }}>평점 많은 순</button>
-            <button onClick={()=>{
-                dispatchCriteria("new");
-            }}>최근에 추가된</button>
-            <button onClick={()=>{
-                dispatchCriteria("old");
-            }}>오래 전에 추가된</button>
+            <div className="buttons">
+                <button onClick={()=>{
+                    dispatchCriteria("rating");
+                }}>평점 순</button>
+                <button onClick={()=>{
+                    dispatchCriteria("ratingNumber");
+                }}>평점 많은 순</button>
+                <button onClick={()=>{
+                    dispatchCriteria("new");
+                }}>최근에 추가된</button>
+                <button onClick={()=>{
+                    dispatchCriteria("old");
+                }}>오래 전에 추가된</button>
+            </div>
         </div>
     );
 }

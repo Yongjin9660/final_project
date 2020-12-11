@@ -21,4 +21,12 @@
     text-align: center;
   }
 
-
+  @media screen and (max-width: 1300px) {
+    .Find .contents {
+      grid-template-columns: 1fr;
+      width: 90%;
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-top: 7%;
+    }
+  }

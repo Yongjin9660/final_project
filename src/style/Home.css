@@ -1,7 +1,6 @@
 .Home {
     display: flex;
     justify-content: center;
-    /* height: 100%; */
     background-color: #000000;
   }
   
@@ -22,11 +21,10 @@
     grid-template-columns: repeat(2, minmax(500px, 1fr));
     grid-gap: 60px;
     width: 95%;
-    padding-top: 80px;
+    padding-top: 4%;
     padding-bottom: 50px;
     padding-left: 120px;
     padding-right: 120px;
-    height: 100%;
   }
   
   @media screen and (max-width: 1300px) {
@@ -35,6 +33,6 @@
       width: 90%;
       padding-left: 0px;
       padding-right: 0px;
-      padding-top: 100px;
+      padding-top: 5%;
     }
   }

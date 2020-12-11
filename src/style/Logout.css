@@ -5,7 +5,7 @@
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 600;
-
+    display: inline;
 }
 
 .Logout button:hover{
