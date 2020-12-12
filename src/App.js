@@ -8,7 +8,6 @@ import Sort from "./components/Sort";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import AddContent from "./components/AddContent";
-import Profile from "./components/Profile";
 import SignUp from "./components/SignUp";
 import Detail from "./components/Detail";
 import Director from "./components/sort/Director";
@@ -34,7 +33,6 @@ function App({ state, dispatchLogin }){
        
         <div className="Body">
           <Route path="/admin" exact={true} component={AddContent} />
-          <Route path="/profile" exact={true} component={Profile} />
           <Route path="/login" exact={true} component={Login} />
           <Route path="/signup" exact={true} component={SignUp} />
           <Route path="/review/:id" exact={true} component={Detail} />

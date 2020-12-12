@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
 import { actionCreators } from "../store";
 import '../style/Logout.css'
 
@@ -8,6 +9,7 @@ function Logout({ dispatchLogout }) {
     function Logout(){
         dispatchLogout();
         sessionStorage.clear();
+        return <Redirect to={{ pathname: "/" }} />;
     }
     
     return(

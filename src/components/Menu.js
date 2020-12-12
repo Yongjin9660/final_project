@@ -9,7 +9,6 @@ function Menu({ state, dispatchLogin }) {
     return (
         <div className="Menu">
             <Link to="/">Home</Link>
-            <Link to="/profile">Profile</Link>
             {
                 state.isAdmin ?
                     <Link to="/admin">작품 추가</Link> : <></>
