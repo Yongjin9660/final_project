@@ -144,6 +144,20 @@
     visibility: hidden;
 } */
 
+.Detail #pageButton{
+    /* display: block;
+    float: bottom; */
+    text-align: center;
+}
+.Detail #pageButton button{
+    /* display: block;
+    float: bottom; */
+    border-style: none;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 
 .Detail .review .btn_star1{
     display: inline;

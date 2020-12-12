@@ -17,7 +17,10 @@ class Detail extends React.Component {
             rating: 0,
             reviewText: "",
             reviews: [],
-            content: {}
+            showReviews: [],
+            content: {},
+            pageNumber : 1,
+            currentPage : 1
         }
     }
     textChange = (e) => {
@@ -31,7 +34,20 @@ class Detail extends React.Component {
         var id = this.props.location.state.content_id;
         await axios.get(`/content/review/${id}`, { id: id })
             .then(review => {
-                this.setState({ reviews: review.data, isLoading: false });
+                let temp = review.data.sort(this.sortReview);
+                let show_temp = temp.slice(0, 8);
+                
+                this.setState({ reviews: temp, isLoading: false, showReviews: show_temp });
+
+                let pageNumber = review.data.length / 8 + 1;
+                var button_element = document.getElementById("pageButton");
+
+                for(let i = 1 ; i < pageNumber ; i++){
+                    var newButton = document.createElement("button");
+                    newButton.addEventListener("click", () => this.click_page(i));
+                    newButton.innerHTML = i;
+                    button_element.appendChild(newButton);
+                }
             })
     }
     getContents = async () => {
@@ -121,10 +137,15 @@ class Detail extends React.Component {
         else
             return 1;
     }
+    click_page = (value) => {
+        var temp = this.state.reviews.slice(8 * value - 8  , 8 * value)
+        this.setState({ showReviews:temp });
+    }
 
+    
     render() {
-        const { content } = this.state;
-     
+        const { content ,showReviews } = this.state;
+    
         return (
             <div className="Detail">
                 {this.state.isLoading2 ?
@@ -196,10 +217,11 @@ class Detail extends React.Component {
                             <span>Loading...</span>
                         </div>
                     ) : (
+                        <>
                             <div className="reveiw_list">
                                 <ul>
-                                    {this.state.reviews.sort(this.sortReview).map(review => (
-                                        <li key={content._id}>
+                                    {showReviews.sort(this.sortReview).map(review => (
+                                        <li key={review._id}>
                                             <Review
                                                 review={review}
                                                 _id={content._id}
@@ -207,8 +229,12 @@ class Detail extends React.Component {
                                         </li>
                                     ))}
                                 </ul>
+
                                 <div className="clear"></div>
                             </div>
+                            <div id="pageButton">
+                            </div>
+                        </>
                         )
                     }
                 </div>
