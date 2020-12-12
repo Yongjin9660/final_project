@@ -7,7 +7,7 @@ import Menu from "./components/Menu";
 import Sort from "./components/Sort";
 import Login from "./components/Login";
 import Home from "./components/Home";
-import Admin from "./components/Admin";
+import AddContent from "./components/AddContent";
 import Profile from "./components/Profile";
 import SignUp from "./components/SignUp";
 import Detail from "./components/Detail";
@@ -33,7 +33,7 @@ function App({ state, dispatchLogin }){
         <Menu />
        
         <div className="Body">
-          <Route path="/admin" exact={true} component={Admin} />
+          <Route path="/admin" exact={true} component={AddContent} />
           <Route path="/profile" exact={true} component={Profile} />
           <Route path="/login" exact={true} component={Login} />
           <Route path="/signup" exact={true} component={SignUp} />

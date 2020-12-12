@@ -199,10 +199,12 @@ class Detail extends React.Component {
                             <div className="reveiw_list">
                                 <ul>
                                     {this.state.reviews.sort(this.sortReview).map(review => (
-                                       <Review
-                                            review={review}
-                                            _id={content._id}
-                                        /> 
+                                        <li key={content._id}>
+                                            <Review
+                                                review={review}
+                                                _id={content._id}
+                                            /> 
+                                        </li>
                                     ))}
                                 </ul>
                                 <div className="clear"></div>

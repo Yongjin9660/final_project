@@ -5,15 +5,14 @@ import '../style/Logout.css'
 
 function Logout({ dispatchLogout }) {
 
-    function tempLogout(){
-        alert('로그아웃!');
+    function Logout(){
         dispatchLogout();
         sessionStorage.clear();
     }
     
     return(
         <div className="Logout">
-            <button onClick={tempLogout}>Logout</button>
+            <button onClick={Logout}>로그아웃</button>
         </div>
     );
 }

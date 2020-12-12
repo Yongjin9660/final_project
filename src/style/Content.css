@@ -1,4 +1,4 @@
-  .contents .content {
+  .content {
     background-color: rgb(30, 30, 30);
     font-weight: 300;
     padding: 20px;
@@ -10,9 +10,13 @@
   .contents .content a {
     display: grid;
     grid-template-columns: 150px 30px 1fr;
+    grid-template-rows: 1fr 10px;
     grid-gap: 20px;
     text-decoration: none;
     color: white;
+  }
+  .content .content_data{
+    grid-row: span 2;
   }
 
   .content img{
@@ -22,6 +26,44 @@
     max-width: 150px;
     width: 100%;
     box-shadow: 2px 2px 4px rgb(140, 140, 140);
+  }
+  .content .number_heart {
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: inline;
+    margin-bottom: 0px;
+  }
+  .content .number_heart:active {
+    border-style: none;
+    background: none;
+    outline: none;
+  }
+  .content .btn_heart {
+    width: 14px;
+    height: 14px;
+    background: red;
+    position: relative;
+    transform: rotate(225deg);
+    cursor: pointer;
+    border: none;
+    display: inline;
+    float: left;
+  }
+  .content .btn_heart::before,
+  .content .btn_heart::after {
+    content: "";
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    border-radius: 50%;
+    background: red;
+  }
+  .content .btn_heart::before {
+    left: -5%;
+  }
+  .content .btn_heart::after {
+    top: -5%;
   }
 
   .content .content_title:nth-child(){

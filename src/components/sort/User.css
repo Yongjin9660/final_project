@@ -24,7 +24,7 @@
 }
 .User .list .title a{
     text-decoration: none;
-    color: white;
+    color: royalblue;
 }
 .User .list .rating{
     color: silver;
@@ -36,8 +36,12 @@
     color: silver;
     font-size: 16px;
     font-weight: 600;
-    display: inline;
     margin-left: 10%;
+    margin-right: 8%;
+    margin-top: 1%;
+    margin-bottom: 10px;
+    display: block;
+    word-break: break-all;
 }
 .User .list .date{
     color: silver;

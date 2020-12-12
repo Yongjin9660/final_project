@@ -136,13 +136,13 @@
 .Detail .review li{
     margin-top: 10px;
 }
-.Detail .review li::after{
+/* .Detail .review li::after{
     display: block;
     clear: both;
     content: " ";
     height: 0;
     visibility: hidden;
-}
+} */
 
 
 .Detail .review .btn_star1{

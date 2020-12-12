@@ -10,18 +10,17 @@ function Menu({ state, dispatchLogin }) {
         <div className="Menu">
             <Link to="/">Home</Link>
             <Link to="/profile">Profile</Link>
-            <Link to="/admin">Admin</Link>
-            {/* {
+            {
                 state.isAdmin ?
-                    <Link to="/admin">Admin</Link> : <></>
-            } */}
+                    <Link to="/admin">작품 추가</Link> : <></>
+            }
             {
                 state.isLogin ? 
                     <Logout />
                     :
                     <>
-                    <Link to="/login">Login</Link>
-                    <Link to="/signup">SignUp</Link>
+                    <Link to="/login">로그인</Link>
+                    <Link to="/signup">회원가입</Link>
                     </>
             }
         </div>

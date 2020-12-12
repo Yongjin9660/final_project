@@ -1,43 +1,57 @@
+
 ._review{
-    margin-left: 15%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: block;
 }
 ._review .Star_Rating{
-    display: inline;
+    display: block;
     float: left;
     width: 170px;
+    margin-left: 12%;
 }
 ._review ._review_detail{
     float: left;
     margin-left: 15px;
     width: 60%;
-    background-color: slategrey;
     display: inline-block;
+    border-bottom: 1px dashed #d0d0d0;
+    padding-bottom: 20px;
+    margin-bottom: 2%;
 }
 ._review ._review_text{
     display: block;
     text-align: left;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    margin-top: -0.5%;
     word-break: break-all;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 1%;
+    margin-right: 3%;
+    font-size: 15px;
+    color:whitesmoke;
+}
+._review ._review_additinal{
+    margin-top: 10px;
 }
 
-._review ._review_email{
+._review ._review_additinal ._review_email{
     display: block;
     float: left;
-    margin-left: 20px;
+    margin-left: 5%;
+    font-weight: 400;
 }
 ._review ._review_email a{
-    color: white;
-}
-._review ._review_delete{
-    margin-right: 20px;
-    float: right;
+    color: rgb(181, 193, 228);
 }
 ._review ._review_id{
     display: block;
     text-align: right;
     margin-right: 20px;
+}
+._review button{
+    border: none;
+    background-color: transparent;
+    color: red;
+    font-size: 15px;
+    display: block;
+    padding-top: 2%;
 }
 

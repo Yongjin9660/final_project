@@ -15,33 +15,32 @@ class Review extends React.Component{
 
     render(){
         const { text, rating, email, id } = this.props.review;
-        return(
-            <li key={id}>
-                <div className="_review">
-                    <Star rating={rating} />
-                    <div className="_review_detail">
-                        <p className="_review_text">
-                            {text}
-                        </p>
-                        <div className="_review_additinal">
-                            <div className="_review_email">{Link.makeUserLink(email)}</div>
-                            <div className="_review_id">{this.getDate(id)}</div>
-                        </div>
+        return (
+            <div className="_review">
+                <Star rating={rating} className="Star_Rating"/>
+                <div className="_review_detail">
+                    <p className="_review_text">
+                        {text}
+                    </p>
+                    <div className="_review_additinal">
+                        <div className="_review_email">{Link.makeUserLink(email)}</div>
+                        <div className="_review_id">{this.getDate(id)}</div>
                     </div>
-                    {this.props.state.email === email ? (
-                        <button onClick = {() => {
-                            axios.post('/content/deleteReview', {_id: this.props._id ,date : id, email : email, rating : rating})
+                </div>
+                {this.props.state.email === email ? (
+                    <button onClick={() => {
+                        axios.post('/content/deleteReview', { _id: this.props._id, date: id, email: email, rating: rating })
                             .then(function (res) {
                                 alert("리뷰를 삭제하였습니다.");
                                 window.location.reload(true);
                             })
                             .catch(err => { console.log(err) });
-                        }}>삭제</button>
-                    ) : (
+                    }}>삭제</button>
+                ) : (
                         <></>
                     )}
-                </div>
-            </li>
+                    <br></br>
+            </div>
         );
     }
 }

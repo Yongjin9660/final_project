@@ -1,32 +1,43 @@
-.Admin {
+.AddContent {
     background-color: rgb(30, 30, 30);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
+.AddContent th{
+    text-align: center;
+    /* padding-bottom: 50px; */
+}
+.AddContent .head{
+    /* text-align: center; */
+    color: silver;
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-left: 13%;
+}
 
-.Admin table button{
+.AddContent table button{
     background-color: rgb(61, 54, 54);
     /* color: rgb(114, 134, 72); */
     color: silver;
     font-weight: 600;
     font-size: 20px;
     border-radius: 5px;
-    margin-top: 10px;
-    margin-left: 80px;
+    margin-top: 1%;
+    margin-left: 13%;
 }
 
-.Admin table button:hover{
+.AddContent table button:hover{
     cursor: pointer;
 }
 
-.Admin .Admin_table td{
+.AddContent .AddContent_table td{
     color: silver;
     text-align: center;
 }
 
-.Admin table textarea{
+.AddContent table textarea{
     width: 500px;
     background-color: rgb(61, 54, 54);
     color: silver;
@@ -38,7 +49,7 @@
     resize: none;
 }
 
-.Admin table input{
+.AddContent table input{
     height: 30px;
     width: 500px;
     background-color: rgb(61, 54, 54);
@@ -73,7 +84,7 @@
     max-height: 30px;
 }
 
-.Admin .Admin_table{
+.AddContent .AddContent_table{
     justify-content: center;
     align-items: center;
 }
