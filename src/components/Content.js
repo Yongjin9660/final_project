@@ -78,10 +78,6 @@ function Content({ id, content }) {
                         {actor()}
                     </div>
                 </div>
-                <div>
-                    <button className="btn_heart" onClick={(event)=>{alert("btn CLick!");}}></button>
-                    <div className="number_heart">100</div>
-                </div>
             </Link>
         </div>
     );
