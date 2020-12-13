@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
     console.log('http://localhost:4000/content/');
+    console.log("Hererere");
     const contents = await Content.find({});
     res.json(contents);
 });

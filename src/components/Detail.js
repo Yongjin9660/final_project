@@ -55,7 +55,7 @@ class Detail extends React.Component {
             .catch(e=>console.log(e))
     }
     getContents = async () => {
-        await axios.get("http://localhost:4000/content/")
+        await axios.get("/content")
             .then(data => {
                 this.props.dispatchContents(data.data);
                 for (let i = 0; i < data.data.length; i++) {
