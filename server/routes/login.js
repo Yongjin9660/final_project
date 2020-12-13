@@ -16,7 +16,6 @@ router.post('/', async (req, res, next) => {
 // 회원가입 처리
 router.post('/signup', (req,res)=>{
     var data = req.body;
-    console.log(data);
 
     var isAdmin = false;
 

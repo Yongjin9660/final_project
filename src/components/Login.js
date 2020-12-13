@@ -12,8 +12,6 @@ function Login({ state, dispatchLogin }) {
     const [password, setPassword] = useState("");
 
     function Auth() {
-        console.log(text);
-        console.log(password);
         axios.post('/login', {})
             .then(response => {
                 var users = response.data;
