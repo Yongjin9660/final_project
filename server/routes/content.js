@@ -92,7 +92,8 @@ router.post('/createReview', (req, res) => {
 router.get('/review/:id', (req, res) => {
     Content.findById(req.params.id)
         .then(data => {
-            res.status(200).json(data.reviews);
+            console.log(data);
+            res.json(data);
         })
         .catch(err => {
             console.log(err);

@@ -34,8 +34,11 @@ class Detail extends React.Component {
         var id = this.props.location.state.content_id;
         await axios.get(`/content/review/${id}`, { id: id })
             .then(review => {
-                let temp = review.data.sort(this.sortReview);
+                console.log(review.data.reviews);
+                let temp = review.data.reviews.sort(this.sortReview);
                 let show_temp = temp.slice(0, 8);
+
+                console.log(show_temp);
                 
                 this.setState({ reviews: temp, isLoading: false, showReviews: show_temp });
 
