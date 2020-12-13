@@ -35,12 +35,12 @@ class Detail extends React.Component {
         await axios.get(`/content/review/${id}`, { id: id })
             .then(review => {
                 console.log(review.data.reviews);
-                let temp = review.data.reviews.sort(this.sortReview);
-                let show_temp = temp.slice(0, 8);
+                // let temp = review.data.reviews.sort(this.sortReview);
+                // let show_temp = temp.slice(0, 8);
 
-                console.log(show_temp);
+                // console.log(show_temp);
                 
-                this.setState({ reviews: temp, isLoading: false, showReviews: show_temp });
+                this.setState({ reviews: review.data.reviews, isLoading: false, showReviews: review.data.reviews });
 
                 let pageNumber = review.data.length / 8 + 1;
                 var button_element = document.getElementById("pageButton");
