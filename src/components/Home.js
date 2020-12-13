@@ -27,7 +27,7 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-      axios.get("http://localhost:4000/content/")
+      axios.get("/content")
         .then(data => {
           this.props.dispatchContents(data.data);
           var contents = data.data.sort((a, b) => Number(b.rating) - Number(a.rating));
