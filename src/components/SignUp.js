@@ -39,6 +39,7 @@ function SignUp({ state, history }) {
             <div className="Signup_table">
                 <table>
                     <thead>
+                        <th colSpan="2">회원가입</th>
                     </thead>
                     <tbody>
                         <tr>

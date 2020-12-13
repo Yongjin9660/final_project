@@ -28,9 +28,6 @@ function Sort({ dispatchCriteria, dispatchSearch }) {
                 <button onClick={()=>{
                     dispatchCriteria("new");
                 }}>최근에 추가된</button>
-                <button onClick={()=>{
-                    dispatchCriteria("old");
-                }}>오래 전에 추가된</button>
             </div>
         </div>
     );

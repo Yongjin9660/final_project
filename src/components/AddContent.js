@@ -43,7 +43,7 @@ function AddContent({ state }) {
                     <table>
                         <thead>
                             <th colSpan="2">
-                                <div className="head">Content 추가</div> 
+                                <div className="head">작품 추가</div> 
                             </th>
                         </thead>
                         <tbody>

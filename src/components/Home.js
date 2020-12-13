@@ -75,18 +75,6 @@ class Home extends React.Component {
         this.setState({ showContents : temp , criteria:"new"});
       }
     }
-    else if(this.props.state.criteria === "old"){
-      if(criteria !== "old"){
-        let temp = showContents.sort((a, b) => {
-          if(a.addDate < b.addDate)
-            return -1;
-          if(a.addDate > b.addDate)
-            return 1;
-          return 0;
-        });
-        this.setState({ showContents : temp , criteria:"old"});
-      }
-    }
 
     return (
       <div className="Home">

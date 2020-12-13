@@ -50,6 +50,7 @@ function Login({ state, dispatchLogin }) {
         return (
             <div className="Login">
                 <div className="login_form">
+                    <div className="title">Netflix Review</div>
                     <input type="text" value={text} onChange={e => setText(e.target.value)} placeholder="ID를 입력해주세요." />
                     <button onClick={Auth}>로그인</button>
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="비밀번호를 입력해주세요." />

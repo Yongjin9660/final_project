@@ -2,7 +2,7 @@
     padding-top: 20px;
 }
 .Sort .buttons{
-    margin-left: 2%;
+    margin-left: 3%;
     display: inline;
 } 
 .Sort .search{
@@ -21,6 +21,8 @@
     color: white;
     background-color: transparent;
     cursor: pointer;
+    margin-left: 1%;
+    font-size: 14px;
 }
 @media screen and (max-width: 1300px) {
     .Sort {
