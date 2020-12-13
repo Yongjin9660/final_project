@@ -63,7 +63,7 @@ function SignUp({ state, history }) {
                         <tr>
                             <td>ADMIN CODE</td>
                             <td>
-                                <input type="text" value={adminCode} onChange={e => setAdminCode(e.target.value)} placeholder="ADMIN CODE" />
+                                <input type="password" value={adminCode} onChange={e => setAdminCode(e.target.value)} placeholder="ADMIN CODE" />
                             </td>
                         </tr>
                     </tbody>

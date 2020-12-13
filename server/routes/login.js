@@ -3,7 +3,6 @@ const crypto = require("crypto");
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
 
 // 로그인 처리
 router.post('/', async (req, res, next) => {
@@ -17,7 +16,7 @@ router.post('/signup', (req,res)=>{
 
     var isAdmin = false;
 
-    if(data.admin === "Yongjin"){
+    if(data.admin === "yongjin"){
         isAdmin = true;    
     }
 
