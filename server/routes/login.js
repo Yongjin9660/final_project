@@ -7,8 +7,6 @@ const LocalStrategy = require('passport-local').Strategy;
 
 // 로그인 처리
 router.post('/', async (req, res, next) => {
-    var data = req.body;
-    console.log('email : ' + data.email + 'pwd : ' + data.password);
     const users = await User.find({});
     res.json(users);
 })

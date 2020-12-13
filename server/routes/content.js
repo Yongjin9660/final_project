@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
     console.log('http://localhost:4000/content/');
     const contents = await Content.find({});
-    res.json(contents);
+    res.status(200).json(contents);
 });
 
 router.post('/create', (req, res) => {
@@ -30,10 +30,10 @@ router.post('/create', (req, res) => {
     content.save((err) => {
         if (err) {
             console.log(err);
-            res.send({ save: "fail" });
+            res.status(200).send({ save: "fail" });
         }
         else {
-            res.send({ save: "success" });
+            res.status(200).send({ save: "success" });
         }
     })
 })
