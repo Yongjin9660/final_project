@@ -26,7 +26,7 @@ class Review extends React.Component {
                         <div className="_review_email">{Link.makeUserLink(email)}</div>
                         {this.props.state.email === email || sessionStorage.getItem("ADMIN") === "true" ? (
                             <button onClick={() => {
-                                axios.post('/content/deleteReview', { _id: this.props._id, date: id, email: email, rating: rating })
+                                axios.post('/review/delete', { _id: this.props._id, date: id, email: email, rating: rating })
                                     .then(function (res) {
                                         alert("리뷰를 삭제하였습니다.");
                                         window.location.reload(true);

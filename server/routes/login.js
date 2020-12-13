@@ -5,17 +5,7 @@ const router = express.Router();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
-router.get('/', (req, res) => {
-    var body = req.body;
-    console.log('http://localhost:4000/login');
-    res.send(body);
-});
-
-router.get('/signup', (req, res) => {
-    console.log('http://localhost:4000/login/SignUp');
-    res.send('Here is SignUp');
-});
-
+// 로그인 처리
 router.post('/', async (req, res, next) => {
     var data = req.body;
     console.log('email : ' + data.email + 'pwd : ' + data.password);
@@ -23,6 +13,7 @@ router.post('/', async (req, res, next) => {
     res.json(users);
 })
 
+// 회원가입 처리
 router.post('/signup', (req,res)=>{
     var data = req.body;
     console.log(data);

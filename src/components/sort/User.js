@@ -21,7 +21,7 @@ class User extends React.Component {
     }
     getReviews = async () => {
         var user = this.props.location.state.user;
-        await axios.post(`/content/reviewlist/${user}`, { user : user })
+        await axios.post(`/review/${user}`, { user : user })
             .then(data => {
                 this.setState({ reviews: data.data[0].reviews, isLoading: false });
             })

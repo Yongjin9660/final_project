@@ -32,16 +32,9 @@ class Detail extends React.Component {
     }
     getReviews = async () => {
         var id = this.props.location.state.content_id;
-        await axios.get(`/content/review/${id}`, { id: id })
+        await axios.get(`/review/${id}`, { id: id })
             .then(review => {
-                console.log(review.data.reviews);
-                // let temp = review.data.reviews.sort(this.sortReview);
-                // let show_temp = temp.slice(0, 8);
-
-                // console.log(show_temp);
-                
                 this.setState({ reviews: review.data.reviews, isLoading: false, showReviews: review.data.reviews });
-
                 let pageNumber = review.data.length / 8 + 1;
                 var button_element = document.getElementById("pageButton");
 
@@ -119,7 +112,7 @@ class Detail extends React.Component {
             }
         }
 
-        axios.post('/content/createReview', {
+        axios.post('/review/create', {
             content_id: this.props.location.state.content_id,
             id: Date.now(),
             email: this.props.state.email,
@@ -127,9 +120,7 @@ class Detail extends React.Component {
             reviewText: this.state.reviewText
         })
             .then(function (res) {
-                console.log(res);
-
-                alert("리뷰를 등록하였습니다.");
+                alert("리뷰가 등록되었습니다");
                 window.location.reload(true);
             })
             .catch(err => console.log('error : ', err));

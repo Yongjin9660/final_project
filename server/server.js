@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const passport = require('passport');
 const mongoose = require('mongoose');
 const mongooseAutoInc = require('mongoose-auto-increment');
 const bodyParser = require('body-parser');
@@ -18,15 +19,17 @@ mongooseAutoInc.initialize(mongoose.connection);
 
 const contentRouter = require('./routes/content');
 const loginRouter = require('./routes/login');
+const reviewRouter = require('./routes/review');
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use('/', indexRouter);
+
 app.use('/content', contentRouter);
 app.use('/login', loginRouter);
+app.use('/review', reviewRouter);
 app.use(flash());
 
 var store = new MongoDBStore({
@@ -42,10 +45,10 @@ app.use(Session({
   secret:'mymymymymyna', 
   resave:false,
   saveUninitialized:true,
-  //cookie:{maxAge:1000*60*60},
+  cookie:{maxAge:1000*60*60},
   store: store
 }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.listen(4000, () => console.log('Node.js Server is running on port 4000...'));
