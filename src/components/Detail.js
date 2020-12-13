@@ -49,6 +49,7 @@ class Detail extends React.Component {
                     button_element.appendChild(newButton);
                 }
             })
+            .catch(e=>console.log(e))
     }
     getContents = async () => {
         await axios.get("http://localhost:4000/content/")
