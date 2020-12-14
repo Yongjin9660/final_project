@@ -1,41 +1,30 @@
-.Menu {
-    z-index: 1;
-    position: fixed;
-    top: 30px;
-    left: 5px;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(61, 54, 54);
-    padding: 10px 20px;
-    box-shadow: 3px 3px 3px rgb(112, 102, 102);
-    border-radius: 5px;
-  }
-
-  
-  @media screen and (max-width: 1300px) {
-    .Menu {
+     .Menu {
+      flex-direction: column;
+      position: fixed;
+      z-index: 1;
+      display: flex;
       top: 0px;
       bottom: initial;
-      width: 95%;
+      padding: 10px 20px;
+      background-color: rgb(61, 54, 54);
+      width: 100%;
       display: inline;
       text-align: center;
       box-shadow: 0px 1px 1px rgb(112, 102, 102);
     }
-    .Menu a {
-        padding-left: 20px;
-        display: inline;
-      }
-  }
+  
   .Menu .Logout{
     display: inline;
+    padding-left: 30px;
   }
   .Menu a {
+    padding-left: 40px;
     text-decoration: none;
     color: silver;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 13px;
     text-align: center;
-    font-weight: 600;
+    font-weight: 800;
     display: inline;
   }
   

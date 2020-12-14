@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
 const mongooseAutoInc = require('mongoose-auto-increment');
 
-const Schema = mongoose.Schema;
-
 const UserSchema = new mongoose.Schema({
     email: { 
         type: String, 
